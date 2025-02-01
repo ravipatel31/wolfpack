@@ -1,0 +1,94 @@
+@media screen and (max-width:767px) {
+    .video {
+        width: 100%;
+    }
+
+    .header {
+        display: none;
+    }
+
+
+    .fs-18 {
+        max-width: 80%;
+    }
+.input{
+    width: 80%;
+}
+.btn-primary{
+    padding: 10px 28px !important;
+}
+.mainpart{
+    padding: 20px;
+}
+.phone-display{
+    flex-direction: column !important;
+    
+}
+.credit-check img{
+    height: 80px !important;
+}
+.opt_img{
+    height: 60px;
+    width: 60px;
+}
+.opt_heading, .opt_desc{
+    margin: 5px 0px;
+}
+.pc_img{
+    width: 100%;
+}
+.discover{
+    margin-bottom: 30px;
+}
+.trade{
+    flex-direction: column-reverse;
+    justify-content: center;
+
+}
+.trade-img{
+    height: 90%;
+    width: 90%;
+}
+.hunting-main{
+    flex-direction: column;
+}
+.hunting-img{
+    height: 300px;
+    width: 300px;
+}
+.steps{
+    width: 100%;
+}
+.invest-img{
+   display: none;
+}
+.investing {
+    padding: 30px !important;
+}
+.investing .heading{
+    white-space:nowrap;
+}
+.caption{
+    width: 100% !important;
+}
+.signup-form{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    padding: 30px ;
+}
+.part-1{
+    flex-direction: column;
+    /* flex-grow: 1 auto auto; */
+    gap: 20px;
+}
+.part-1-1{
+    width: 100% !important;
+}
+.licencing{
+    height: 250px;
+}
+
+}
