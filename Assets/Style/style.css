@@ -59,7 +59,7 @@ body{
     position: fixed !important;
     width: 100%;
     /* filter: blur(10px); */
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
     background-color: var(--bg-light) !important;
 
 }
@@ -186,7 +186,7 @@ body{
     background: url(../Backgrounds/body.png);
     background-repeat: no-repeat;
     /* background-position: 0px 1000px; */
-    background-position: 0px 550px;
+    background-position: 0px 500px;
 }
 
 .video{

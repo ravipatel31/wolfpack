@@ -9,12 +9,12 @@
 
 
     .fs-18 {
-        max-width: 80%;
+        max-width: 100%;
     }
 .input{
     width: 80%;
 }
-.btn-primary{
+.btn-orange{
     padding: 10px 28px !important;
 }
 .mainpart{
