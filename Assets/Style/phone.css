@@ -4,12 +4,24 @@
     }
 
     .header {
-        display: none;
+        /* display: none; */
+        backdrop-filter: none !important;
+        background-color: black !important;
     }
 
 
     .fs-18 {
         max-width: 100%;
+        font-size: 16px;
+    }
+    .fs-32{
+        font-size: 28px;
+    }
+    .fs-24{
+        font-size: 20px;
+    }
+    .fs-20{
+        font-size: 16px;
     }
 .input{
     width: 80%;
@@ -31,6 +43,17 @@
     height: 60px;
     width: 60px;
 }
+.heading-margin{
+margin-bottom: 5px !important;
+}
+.opt-desc{
+    font-size: 16px;
+    width: 70%;
+    margin: 0px auto;
+}
+.discover_opt{
+    margin-bottom: 10px;
+}
 .opt_heading, .opt_desc{
     margin: 5px 0px;
 }
@@ -43,11 +66,20 @@
 .trade{
     flex-direction: column-reverse;
     justify-content: center;
+    margin-bottom: 20px;
 
+}
+.listtype{
+    height: 20px;
+    width: 24px;
 }
 .trade-img{
     height: 90%;
     width: 90%;
+}
+.hunting{
+    border-radius: 20px;
+    background-size: 100% 100%;
 }
 .hunting-main{
     flex-direction: column;
@@ -56,6 +88,22 @@
     height: 300px;
     width: 300px;
 }
+.circle{
+    height: 35px;
+    width: 40px;
+}
+
+.circle2{
+    height: 14px;
+    width: 14px;
+}
+.cborder::after{
+    height: 200px;
+}
+.stp{
+    padding-bottom: 20px;
+}
+
 .steps{
     width: 100%;
 }
@@ -89,6 +137,17 @@
 }
 .licencing{
     height: 250px;
+}
+.social-icon{
+    margin-top: 20px;
+}
+.soc-ico{
+    height: 25px;
+    width: 28px;
+}
+.logo-img{
+    width: 50% !important;
+    margin-bottom: 10px;
 }
 
 }
