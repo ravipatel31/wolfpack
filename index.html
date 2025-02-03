@@ -228,10 +228,25 @@
             // Debugging: Check if elements exist
             console.log("Hero section:", document.querySelector(".hero"));
 
-            gsap.to(".hero-video", {
-                scale: 1.1,
-                duration: 3,
-                ease: "power1.inOut"
+            gsap.to(".scale", {
+                 scale:1,
+                duration: 2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".scale",
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            gsap.to(".opacity", {
+                 opacity:1,
+                duration: 2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".opacity",
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
             });
 
             gsap.from(".hero-text, .hero-btn", {
@@ -242,7 +257,7 @@
                 scrollTrigger: {
                     trigger: ".hero",
                     start: "top 80%",
-                    toggleActions: "play none none reverse"
+                    toggleActions: "play none none none"
                 }
             });
             gsap.registerPlugin(ScrollTrigger);

@@ -36,8 +36,10 @@
     flex-direction: column !important;
     
 }
+
 .credit-check img{
     height: 80px !important;
+    max-width: 100% !important;
 }
 .opt_img{
     height: 60px;
@@ -69,6 +71,11 @@ margin-bottom: 5px !important;
     margin-bottom: 20px;
 
 }
+.trade-item{
+    margin: 10px 0px !important;
+    /* align-items: start !important; */
+}
+
 .listtype{
     height: 20px;
     width: 24px;
@@ -149,5 +156,14 @@ margin-bottom: 5px !important;
     width: 50% !important;
     margin-bottom: 10px;
 }
-
+.booster-2{
+    padding: 10px 20px ;
+}
+.input-container{
+    width: 100%;
+    justify-content: center;
+}
+.input-container i{
+    left: 15%;
+}
 }

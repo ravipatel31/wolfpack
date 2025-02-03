@@ -31,7 +31,7 @@
     --bg-color: #000000;
     --text-secondary: #FFFFFF80;
     --text-color: #ffffff;
-    --border-color:#FFFFFF;
+    --border-color:#FFFFFF3A;
   }
   .bg-dark{
     background-color: var(--bg-color) !important;
@@ -65,7 +65,8 @@ body{
 }
 .fs-64{
     justify-content: center;
-    font-size: clamp(28px, 5vw, 64px);
+    /* font-size: clamp(28px, 5vw, 64px); */
+    font-size: 64px !important;
     margin-bottom: 0px;
 }
 .mb-30{
@@ -169,6 +170,8 @@ body{
 }
 .videopart{
     position: fixed;
+    max-width: 1380px !important;
+    /* margin: 0px auto; */
     width: 100%;
     height: 100vh !important;
     /* position: relative;
@@ -182,15 +185,17 @@ body{
 }
 .mainpart{
     padding:30px;
-    /* max-width: 1380px !important; */
+    max-width: 1380px !important;
     height: fit-content;
     position: relative;
     margin: 0px auto;
     margin-top: 100vh;
     background-color: var(--bg-color) !important;
+   
+}
+.bg-img{
     background: url(../Backgrounds/body.png);
     background-repeat: no-repeat;
-    /* background-position: 0px 1000px; */
     background-position: 0px 500px;
 }
 
@@ -200,6 +205,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
+    /* scale: 0.9; */
     object-fit: cover;
 }
 
@@ -220,12 +226,17 @@ body{
     animation: opacity 3s ease;
     transition: all .3s;
 }
+.opt-desc{
+    width: 75% !important;
+    margin: 0px auto;
+}
 @keyframes opacity {
     from{opacity: 0;}
     to{opacity: 1;}
 }
 .mainsection{
     width: 100%;
+    max-width: 1380px;
     height: fit-content;
     margin: 0px auto;
     background-color: var(--bg-color) !important;
@@ -270,14 +281,25 @@ body{
 .mt-0{
     margin-top: 0px;
 }
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 35%;
+}
+.input-container i {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
 .input{
     border: 1px solid var(--border-color);
     color: var(--text-color);
     clip-rule: var(--text-color);
-    padding: 13px 20px;
+    padding: 13px 50px;
     margin-bottom: 20px;
+    width: 100%;
     border-radius: 50px;
-    width: 35%;
     background-color: transparent;
 }
 .mr-20{
@@ -295,7 +317,7 @@ body{
 .discover{
     background: url(../Backgrounds/discover.png);
     background-position: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
     background-color: rgba(0, 0, 0, 0.5); 
     background-size: 100% 100%;
     margin-bottom: 50px;
@@ -510,19 +532,11 @@ body{
     /* box-shadow: 0px 10px 15px rgba(200, 50, 20, 0.6); */
     /* box-shadow: 0px 20px 20px rgba(242, 103, 74, 0.4); */
   }
-  
-  .wave {
-    position: relative;
-    background: linear-gradient(45deg, #090979, #00d4ff);
-    padding: 50px;
+  .scale{
+    scale: 0.8;
   }
-  .wave::before {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    width: 100%;
-    height: 40px;
-    background: url('wave.svg') repeat-x;
+  .opacity{
+    opacity: 0;
   }
 /* ------------------------------------------------------------------------------------Booster -------------------------------------------------------------------------- */
 .booster-1{
@@ -532,18 +546,59 @@ body{
     background-size: 185px;
 }
 .booster-2{
-    /* background: url(../Images/gradientcircle.png);
-    background-position: 25vw 0px;
+    background: url(../Backgrounds/boosterloan1.png);
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: 185px; */
-    border: 1px solid white !important;
+    background-size: 100% 100%; 
+    padding: 30px 30px 10px 30px;
     border-radius: 20px !important;
 }
 .credit-check{
-    border: 1px solid white;
+    background: url(../Backgrounds/boosterloan2.png);
+    /* border: 1px solid white; */
+    background-size: 100% 100%;
     border-radius: 30px;
-    height: 524px;
-    width: 400px !important;
+    /* height: 524px; */
+    /* width: 400px !important; */
+    max-width: 400px !important;
+}
+.credit-check1{
+    background: url(../Backgrounds/boosterloan3_1.png) !important;
+    background-size: 100% 100%;
+    border-radius: 30px !important;
+}
+.credit-check2{
+    background: url(../Backgrounds/boosterloan3_2.png) !important;
+    background-size: 100% 100%;
+    background-position: center;
+    border-radius: 30px !important;
+}
+.credit-check3{
+    background: url(../Backgrounds/boosterlaon3_3.png) !important;
+    background-size: 100% 100%;
+    border-radius: 30px !important;
+}
+
+.blink-btn{
+/* box-shadow: 0 0 30px rgba(74, 122, 242, 1), 0 0 50px rgba(242, 103, 74, 1); */
+
+    border-radius: 30px;
+    background: linear-gradient(90deg,rgba(242, 103, 74, 0.2),rgba(74, 122, 242, 0.2)) !important;
+    box-sizing: content-box;
+    animation: blink 2s infinite alternate;
+    transition: all .3s;
+}
+@keyframes blink {
+    0% {
+        box-shadow: 0 0 15px rgba(242, 103, 74, 0.8), 0 0 15px rgba(242, 103, 74, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(74, 122, 242, 1), 0 0 15px rgba(74, 122, 242, 1);
+    }
+}
+.booster-7{
+    background: url(../Backgrounds/hunting.png);
+    background-size: 100% 100%;
 }
 
 @media  (min-width:768px) and (max-width:1024px) {
