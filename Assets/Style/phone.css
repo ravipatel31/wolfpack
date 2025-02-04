@@ -166,4 +166,7 @@ margin-bottom: 5px !important;
 .input-container i{
     left: 15%;
 }
+.card-1, .payment{
+    width: 100% !important;
+}
 }
