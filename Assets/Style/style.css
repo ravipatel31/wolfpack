@@ -61,11 +61,27 @@
 .dropdown-item:hover {
     background-color: rgba(0, 0, 0, 0.3) !important;
 }
+.dailog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    height: 681px;
+    width: 520px;
+    border-radius: 20px;
+    background: #000000;
+    border: 1px solid #a3a3a3;
+}
 
+.h-48 {
+    height: 48px !important;
+}
 body {
     padding: 0px;
     margin: 0;
     width: 100%;
+    height: 100vh;
     overflow-x: hidden;
     color: var(--text-color) !important;
     background-color: var(--bg-color) !important;
@@ -164,7 +180,7 @@ body {
 
 .header {
     position: sticky;
-    z-index: 9999;
+    z-index: 2;
     height: 64px !important;
     top: 0px;
     margin: 0px auto;
@@ -714,16 +730,47 @@ body {
 }
 
 /* ------------------------------------------------------------ Partners -------------------------------------------------- */
-.number {
+.partners-screen{
+    background-image: url(../Backgrounds/body.png);
+    /* background-size: 100% 100%; */
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+.partner{
+    display: flex;
+    align-items: stretch;
+    backdrop-filter: blur(20px) !important;
+    
+    background: rgba(0, 0, 0, 0.2) !important;
+    justify-content: space-between;
+}
+.number-heading{
+    position: relative;
+}
+.number{
+    font-family: Avenir-bold !important;
+    font-weight: 900 !important;
+    font-size: 90px !important;
+    margin: 0px;
+    display: inline-block;
+    line-height: normal;
+    opacity: 0.3;
+   
+}
+.heading-name{
+    font-family: Avenir-bold !important;
+    font-weight: 900 !important;
     display: inline-block;
     position: absolute;
-    font-size: 80px;
-    top: -1%;
-    font-weight: 750;
-    opacity: 0.2;
-    background: linear-gradient(45deg, #F2674A 30%, #4A7AF2 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    top: 52%;
+    left: 8%;
+}
+.partner-img{
+    background: url(../Images/Partner/RDQ.png);
+    background-size: 100% 100%;
+    height: 150px;
+    width: 400px;
+    padding: auto !important;
 }
 
  /* --------------------------------------------------------------- Fees ---------------------------------------- */

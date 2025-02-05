@@ -15,6 +15,28 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
+<style>
+    .dailog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        height: 681px;
+        width: 520px;
+        border-radius: 20px;
+        background: #000000;
+        border: 1px solid #a3a3a3;
+    }
+    
+.blur{
+    filter: blur(5px);
+    pointer-events: none;
+}
+    .h-48 {
+        height: 48px !important;
+    }
+</style>
 
 <body>
     <div class="body">
@@ -44,13 +66,14 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-light" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false" onclick="">
+                                    data-bs-toggle="dropdown" aria-expanded="false" onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
                                     Licensing
 
                                 </a>
                                 <ul class="dropdown-menu bg-dark">
                                     <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light" href="#"
-                                            onclick="loadPage('./Pages/Boosterloan.html'); setActive(this);">Booster Loans</a></li>
+                                            onclick="loadPage('./Pages/Boosterloan.html'); setActive(this);">Booster
+                                            Loans</a></li>
                                     <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light" href="#">Premium
                                             Data & Signals</a></li>
                                     <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
@@ -74,12 +97,11 @@
                                     onclick="loadPage('./Pages/Support.html'); setActive(this);">Support</a>
                             </li>
                             <li class="nav-item ">
-                                <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page"
-                                href="https://shop.wolfpack.com/" target="_blank">Shop</a>
+                                <a class="nav-link" aria-current="page" href="https://shop.wolfpack.com/" target="_blank">Shop</a>
                             </li>
                             <li class="nav-item">
-                                <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page"
-                                    href="#"  onclick="loadPage('./Pages/FAQ.html'); setActive(this);">FAQ's</a>
+                                <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page" href="#"
+                                    onclick="loadPage('./Pages/FAQ.html'); setActive(this);">FAQ's</a>
                             </li>
                         </ul>
                         <div class=" col-md-3 text-end gap-4 d-flex flex-column flex-md-row">
@@ -93,7 +115,6 @@
             </div>
         </nav>
         <div class="mainsection" id="content">
-
         </div>
         <div class="footer p-4">
             <div class="part-1">
@@ -173,6 +194,58 @@
             </div>
         </div>
     </div>
+    <div class="dailog d-none  pb-4 pt-1 px-4">
+        <button style="border: none;" class="fs-32 bg-transparent w-100 text-end mb-0" onclick="opendailog()"><i class="fa-regular fa-circle-xmark" style="color: #ffffff;"></i></button>
+        <p class="fs-24 text-center fw-bold">Join Our Waitlist</p>
+        <form action="">
+            <div class="w-100">
+                <span class="text-secondary col-12 mb-2">First Name <span style="color: red;">*</span></span>
+                <div class="input-container px-0 mt-2 col-12">
+                    <input type="text" class="input  ps-3 col-12 fs-6 h-48 " placeholder="First Name">
+                </div>
+            </div>
+            <div class="w-100">
+                <span class="text-secondary col-12 mb-2">Last Name <span style="color: red;">*</span></span>
+                <div class="input-container px-0 mt-2 col-12">
+                    <input type="text" class="input  ps-3 col-12 fs-6 h-48 " placeholder="Last Name">
+                </div>
+            </div>
+            <div class="w-100">
+                <span class="text-secondary col-12 mb-2">Email <span style="color: red;">*</span></span>
+                <div class="input-container px-0 mt-2 col-12">
+                    <input type="email" class="input ps-3  col-12 fs-6 h-48" placeholder="Email">
+                </div>
+            </div>
+            <div class="w-100">
+                <span class="text-secondary col-12 mb-2">Country <span style="color: red;">*</span></span>
+                <div class="input-container px-0 mt-2 col-12">
+                    <select class="input col-12 fs-6 ps-3 h-48" placeholder="Country">
+                        <optgroup class="bg-dark p-0">
+                            <option value="Ravi">Ravi</option>
+                            <option value="Raj" selected>Raj</option>
+                            <option value="Raj">Jeel</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="w-100">
+                <span class="text-secondary col-12 mb-2">State <span style="color: red;">*</span></span>
+                <div class="input-container px-0 mt-2 col-12">
+                    <select class="input col-12 fs-6 ps-3 h-48" placeholder="State">
+                        <optgroup class="bg-dark">
+                            <option value="Ravi">Ravi</option>
+                            <option value="Raj">Raj</option>
+                            <option value="Raj" selected>Jeel</option>
+                        </optgroup>
+                    </select>
+
+                </div>
+            </div>
+            <button type="button"
+                class="btn btn-orange glow-button btn-ani submit-btn btn-2 px-5 d-flex justify-content-center text-white glow-button mx-auto">Submit</button>
+        </form>
+
+    </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
@@ -182,8 +255,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="./Assets/Js/script.js"></script>
 
-    <script>
+
+    <!-- <script>
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
 
@@ -203,21 +279,21 @@
             // Add 'active' class to the clicked link
             element.classList.add("active");
         }
-        function showmore(element){
+        function showmore(element) {
             const siblings = element.nextElementSibling;
-            if(siblings.lastElementChild.classList.contains('text-up')){
+            if (siblings.lastElementChild.classList.contains('text-up')) {
                 siblings.lastElementChild.classList.remove('text-up');
                 siblings.lastElementChild.classList.add('text-down');
-                element.innerHTML='-'
+                element.innerHTML = '-'
             }
-            else{
+            else {
                 siblings.lastElementChild.classList.add('text-up');
                 siblings.lastElementChild.classList.remove('text-down');
-                element.innerHTML='+'
+                element.innerHTML = '+'
 
             }
-        //    console.log(siblings.lastElementChild.classList);
-            
+            //    console.log(siblings.lastElementChild.classList);
+
         }
 
 
@@ -241,7 +317,7 @@
         // Load the home page by default when the site first opens
         document.addEventListener("DOMContentLoaded", async function () {
             // loadPage('Dashboard.html');
-            await loadPage('./Pages/Partners.html');
+            await loadPage('./Pages/Dashboard.html');
             // console.log('part2')
         });
 
@@ -341,7 +417,7 @@
             });
         }
 
-    </script>
+    </script> -->
 </body>
 
 
