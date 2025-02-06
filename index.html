@@ -251,7 +251,12 @@
     </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+        // AOS.init();
+        AOS.init({
+  duration: 2000,  // Animation duration
+  once: true,      // Ensures animation runs only once
+  mirror: false    // Prevents reverse animation
+});
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
