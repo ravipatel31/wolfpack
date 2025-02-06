@@ -60,7 +60,7 @@ function loadPage(page) {
 
 // Load the home page by default when the site first opens
 document.addEventListener("DOMContentLoaded", async function () {
-    await loadPage('./Pages/Licencing.html');
+    await loadPage('./Pages/Dashboard.html');
 });
 
 // ----------------------------------------------------------------------------------------- ANimations -------------------------------------------------------------------------------------
