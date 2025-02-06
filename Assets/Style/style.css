@@ -453,6 +453,7 @@ body {
     background: url(../Backgrounds/referfriend.png);
     background-color: #4A7AF21A !important;
     padding-bottom: 30px;
+    border-radius: 30px !important;
 }
 
 .hunting {
@@ -574,7 +575,7 @@ body {
 }
 
 .signup {
-    padding: 50px 100px;
+    padding: 20px 100px;
     background: url(../Backgrounds/signup.png);
     background-size: 100% 100%;
 }
@@ -677,20 +678,19 @@ body {
 
 .credit-check {
     background: url(../Backgrounds/boosterloan2.png);
-    /* border: 1px solid white; */
     background-size: 100% 100%;
-    border-radius: 30px;
-    /* height: 524px; */
-    /* width: 400px !important; */
     max-width: 400px !important;
 }
 
 .credit-check1 {
     background: url(../Backgrounds/boosterloan3_1.png) !important;
     background-size: 100% 100%;
+    max-width: 400px !important;
     border-radius: 30px !important;
 }
-
+.white-space{
+    white-space: nowrap;
+}
 .credit-check2 {
     background: url(../Backgrounds/boosterloan3_2.png) !important;
     background-size: 100% 100%;
@@ -756,6 +756,17 @@ body {
     line-height: normal;
     opacity: 0.3;
    
+}
+.number-100{
+    display: inline-block;
+    line-height: normal;
+    opacity: 0.3;
+    position: absolute;
+    top: 30px;
+     left: 20px;
+    font-family: Avenir-bold !important;
+    font-weight: 900 !important;
+    font-size: 130px !important;
 }
 .heading-name{
     font-family: Avenir-bold !important;
