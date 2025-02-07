@@ -166,6 +166,9 @@ body {
     width: 78%;
     margin: 0px auto;
 }
+.w-40{
+    width: 45% !important;
+}
 
 .text-center {
     text-align: center;
@@ -679,7 +682,7 @@ body {
 .credit-check {
     background: url(../Backgrounds/boosterloan2.png);
     background-size: 100% 100%;
-    max-width: 400px !important;
+    max-width: 400px;
 }
 
 .credit-check1 {

@@ -104,14 +104,17 @@
                                     <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light" href="#"
                                             onclick="loadPage('./Pages/Boosterloan.html'); setActive(this);">Booster
                                             Loans</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light" href="#">Premium
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light" href="#"
+                                        onclick="loadPage('./Pages/Premiumdata&signal.html'); setActive(this);">Premium
                                             Data & Signals</a></li>
                                     <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
-                                            href="#">Mobile</a></li>
+                                        onclick="loadPage('./Pages/Mobile.html'); setActive(this);" href="#">Mobile</a></li>
                                     <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
-                                            href="#">Discovery</a></li>
+                                        onclick="loadPage('./Pages/AIDriven.html'); setActive(this);" href="#">Discovery</a></li>
                                     <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
-                                            href="#">Customized Development</a></li>
+                                        onclick="loadPage('./Pages/Customise_development.html'); setActive(this);" href="#">Customized Development</a></li>
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
+                                        onclick="loadPage('./Pages/AIservice.html'); setActive(this);" href="#">AI Services</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -276,7 +279,12 @@
     </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+        // AOS.init();
+        AOS.init({
+  duration: 2000,  // Animation duration
+  once: true,      // Ensures animation runs only once
+  mirror: false    // Prevents reverse animation
+});
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

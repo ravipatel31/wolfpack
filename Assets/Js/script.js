@@ -122,7 +122,7 @@ const otherfunctions = () => {
             scrollTrigger: {
                 trigger: section,
                 // start: 'top 80%',
-                toggleActions: 'play play none reverse'
+                toggleActions: 'play play none none'
             }
         });
     });
