@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Avenir';
-    src: url('/Assets/fonts/Avenir/Avenir-Black.ttf') format('woff2');
+    src: url('../../../wolfpack/Assets/fonts/Avenir/Avenir-Black.ttf') format('woff2');
 
     /* url('fonts/custom-font.woff') format('woff'), */
     /* url('fonts/custom-font.ttf') format('truetype'); */
@@ -10,18 +10,47 @@
 
 @font-face {
     font-family: 'Avenir';
-    src: url('/Assets/fonts/Avenir/Avenir-Light.ttf') format('truetype');
-    font-weight:400;
+    src: url('../../../wolfpack/Assets/fonts/Avenir/Avenir-Light.ttf') format('truetype');
+    font-weight:450;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Avenir-bold';
-    src: url('/Assets/fonts/Avenir/Avenir-Black.ttf') format('truetype');
+    src: url('../../../wolfpack/Assets/fonts/Avenir/Avenir-Black.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
+.dailog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    height: 681px;
+    width: 520px;
+    border-radius: 20px;
+    background: #000000;
+    border: 1px solid #a3a3a3;
+}
 
+.blur {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.h-48 {
+    height: 48px !important;
+}
+
+#stateSelect ,#countrySelect {
+    color: white;
+}
+
+#stateSelect option,   #countrySelect option  {
+    background-color: transparent !important;
+    color: black !important;
+}
 .light-theme {
     --bg-color: #ffffff;
     --text-color: #000000;
@@ -56,10 +85,15 @@
 }
 .nav-link.active {
     color: #F2674A !important;  /* Change active link color */
+    border-bottom: 3px solid #F2674A;
 }
 
 .dropdown-item:hover {
-    background-color: rgba(0, 0, 0, 0.3) !important;
+    background-color: transparent !important;
+    color: #F2674A !important;
+}
+.dropdown-item.active{
+    background-color: transparent !important;
 }
 .dailog {
     position: fixed;
@@ -86,16 +120,15 @@ body {
     color: var(--text-color) !important;
     background-color: var(--bg-color) !important;
     /* background-size:contain; */
-    font-family: 'Avenir', sans-serif !important;
+    font-family: 'Avenir' !important;
 }
 
 .header {
     position: fixed !important;
-    width: 100%;
-    /* filter: blur(10px); */
     backdrop-filter: blur(10px);
     background-color: var(--bg-light) !important;
-
+    margin: 0px auto !important;
+    
 }
 
 
@@ -186,6 +219,7 @@ body {
     z-index: 2;
     height: 64px !important;
     top: 0px;
+    width: 100%;
     margin: 0px auto;
     display: flex;
     align-items: center;
@@ -198,7 +232,12 @@ body {
 .body {
 
     color: var(--text-color);
-    padding: 0px;
+    padding: 0px auto !important;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .menue {
@@ -221,20 +260,14 @@ body {
     white-space: nowrap !important;
 }
 
-.navbar .dropdown-toggle::after {
-    display: none !important;
-}
+
 
 .videopart {
     position: fixed;
     max-width: 1380px !important;
-    /* margin: 0px auto; */
     width: 100%;
-    height: 100vh !important;
-    /* position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden; */
+    top: 100px;
+    height: calc(100vh - 100px) !important;
 }
 
 .w-100 {
@@ -265,7 +298,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* scale: 0.9; */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 10px;
     object-fit: cover;
 }
 
@@ -336,6 +372,7 @@ body {
     margin: 0px;
     margin-bottom: clamp(10px, 1%, 20px);
     display: inline-block;
+    font-family:Avenir-bold;
     font-weight: bolder !important;
     background: linear-gradient(to right, #F2674A 35%, #4A7AF2 65%);
     -webkit-background-clip: text;
@@ -598,13 +635,11 @@ body {
 
 .footer {
     background: url(../Backgrounds/footer.png);
-    z-index: 999;
+    z-index: 2;
     backdrop-filter: blur(200px);
     background-size: cover;
     margin-top: 0px !important;
     background-position: center;
-    padding-bottom: 0px;
-    /* height: fit-content; */
     padding-bottom: 0px;
 }
 
@@ -816,7 +851,7 @@ body {
     to{transform:translateY(-10px);display: none; opacity: 0; }
 }
 .payment{
-    width: 49% ;
+    width: 49% !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
