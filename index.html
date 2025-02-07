@@ -28,13 +28,42 @@
         background: #000000;
         border: 1px solid #a3a3a3;
     }
-    
-.blur{
-    filter: blur(5px);
-    pointer-events: none;
-}
+
+    .blur {
+        filter: blur(5px);
+        pointer-events: none;
+    }
+
     .h-48 {
         height: 48px !important;
+    }
+
+    #countrySelect {
+        background-color: black;
+        /* Black background */
+        color: white;
+        /* White text */
+    }
+
+    #countrySelect option {
+        background-color: white;
+        /* Black background */
+        color: black;
+        /* White text */
+    }
+
+    #stateSelect {
+        background-color: black;
+        /* Black background */
+        color: white;
+        /* White text */
+    }
+
+    #stateSelect option {
+        background-color: white;
+        /* Black background */
+        color: black;
+        /* White text */
     }
 </style>
 
@@ -44,7 +73,7 @@
             <div class="container-fluid" data-aos="fade-down" data-aos-duration="1500">
                 <a data-bs-dismiss="offcanvas" href="/"
                     class="d-flex align-items-center col-md-2 mb-2 mb-md-0text-light text-decoration-none">
-                    <img src="./Assets/Images/logo.png" width="200px"  alt="">
+                    <img src="./Assets/Images/logo.png" width="200px" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
@@ -66,7 +95,8 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-light" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false" onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
                                     Licensing
 
                                 </a>
@@ -100,7 +130,8 @@
                                     onclick="loadPage('./Pages/Support.html'); setActive(this);">Support</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" aria-current="page" href="https://shop.wolfpack.com/" target="_blank">Shop</a>
+                                <a class="nav-link" aria-current="page" href="https://shop.wolfpack.com/"
+                                    target="_blank">Shop</a>
                             </li>
                             <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page" href="#"
@@ -198,7 +229,8 @@
         </div>
     </div>
     <div class="dailog d-none  pb-4 pt-1 px-4">
-        <button style="border: none;" class="fs-32 bg-transparent w-100 text-end mb-0" onclick="opendailog()"><i class="fa-regular fa-circle-xmark" style="color: #ffffff;"></i></button>
+        <button style="border: none;" class="fs-32 bg-transparent w-100 text-end mb-0" onclick="opendailog()"><i
+                class="fa-regular fa-circle-xmark" style="color: #ffffff;"></i></button>
         <p class="fs-24 text-center fw-bold">Join Our Waitlist</p>
         <form action="">
             <div class="w-100">
@@ -220,31 +252,27 @@
                 </div>
             </div>
             <div class="w-100">
-                <span class="text-secondary col-12 mb-2">Country <span style="color: red;">*</span></span>
+                <span class="text-secondary col-12 mb-2">
+                    Country <span style="color: red;">*</span>
+                </span>
                 <div class="input-container px-0 mt-2 col-12">
-                    <select class="input col-12 fs-6 ps-3 h-48" placeholder="Country">
-                        <optgroup class="bg-dark p-0">
-                            <option value="Ravi">Ravi</option>
-                            <option value="Raj" selected>Raj</option>
-                            <option value="Raj">Jeel</option>
-                        </optgroup>
+                    <select id="countrySelect" class="input col-12 fs-6 ps-3 h-48">
+                        <option value="United States" selected>United States</option>
                     </select>
                 </div>
             </div>
             <div class="w-100">
-                <span class="text-secondary col-12 mb-2">State <span style="color: red;">*</span></span>
+                <span class="text-secondary col-12 mb-2 state-label">
+                    State <span style="color: red;">*</span>
+                </span>
                 <div class="input-container px-0 mt-2 col-12">
-                    <select class="input col-12 fs-6 ps-3 h-48" placeholder="State">
-                        <optgroup class="bg-dark">
-                            <option value="Ravi">Ravi</option>
-                            <option value="Raj">Raj</option>
-                            <option value="Raj" selected>Jeel</option>
-                        </optgroup>
+                    <select id="stateSelect" class="input col-12 fs-6 ps-3 h-48">
+                        <option value="Alaska" selected>Alaska</option>
                     </select>
-
                 </div>
             </div>
-            <button type="button"
+
+            <button type="button" id="submitBtn"
                 class="btn btn-orange glow-button btn-ani submit-btn btn-2 px-5 d-flex justify-content-center text-white glow-button mx-auto">Submit</button>
         </form>
 
