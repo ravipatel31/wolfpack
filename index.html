@@ -28,11 +28,12 @@
         background: #000000;
         border: 1px solid #a3a3a3;
     }
-    
-.blur{
-    filter: blur(5px);
-    pointer-events: none;
-}
+
+    .blur {
+        filter: blur(5px);
+        pointer-events: none;
+    }
+
     .h-48 {
         height: 48px !important;
     }
@@ -40,11 +41,11 @@
 
 <body>
     <div class="body">
-        <nav class="navbar navbar-expand-lg navbar-dark header backdrop-blur" aria-label="Offcanvas navbar large">
-            <div class="container-fluid" data-aos="fade-down" data-aos-duration="1500">
+        <nav class="navbar navbar-expand-lg navbar-dark header backdrop-blur w-100" aria-label="Offcanvas navbar large">
+            <div class="container-fluid" style="max-width: 1380px;" data-aos="fade-down" data-aos-duration="1500">
                 <a data-bs-dismiss="offcanvas" href="/"
                     class="d-flex align-items-center col-md-2 mb-2 mb-md-0text-light text-decoration-none">
-                    <img src="./Assets/Images/logo.png" width="200px"  alt="">
+                    <img src="../wolfpack/Assets/Images/logo.png" width="200px" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
@@ -54,7 +55,7 @@
                     aria-labelledby="offcanvasNavbar2Label">
                     <div class="offcanvas-header justify-content-between">
                         <a data-bs-dismiss="offcanvas" href="/" class="text-decoration-none">
-                            <img src="./Assets/Images/logo.png" class="w-75" alt="">
+                            <img src="../wolfpack/Assets/Images/logo.png" class="w-75" alt="">
                         </a>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
@@ -66,25 +67,32 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-light" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false" onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
                                     Licensing
 
                                 </a>
                                 <ul class="dropdown-menu bg-dark">
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light" href="#"
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                            href="#"
                                             onclick="loadPage('./Pages/Boosterloan.html'); setActive(this);">Booster
                                             Loans</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light" href="#"
-                                        onclick="loadPage('./Pages/Premiumdata&signal.html'); setActive(this);">Premium
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                            href="#"
+                                            onclick="loadPage('./Pages/Premiumdata&signal.html'); setActive(this);">Premium
                                             Data & Signals</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
-                                        onclick="loadPage('./Pages/Mobile.html'); setActive(this);" href="#">Mobile</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
-                                        onclick="loadPage('./Pages/AIDriven.html'); setActive(this);" href="#">Discovery</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
-                                        onclick="loadPage('./Pages/Customise_development.html'); setActive(this);" href="#">Customized Development</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light"
-                                        onclick="loadPage('./Pages/AIservice.html'); setActive(this);" href="#">AI Services</a></li>
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                            onclick="loadPage('./Pages/Mobile.html'); setActive(this);"
+                                            href="#">Mobile</a></li>
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                            onclick="loadPage('./Pages/AIDriven.html'); setActive(this);"
+                                            href="#">Discovery</a></li>
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                            onclick="loadPage('./Pages/Customise_development.html'); setActive(this);"
+                                            href="#">Customized Development</a></li>
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                            onclick="loadPage('./Pages/AIservice.html'); setActive(this);" href="#">AI
+                                            Services</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -100,7 +108,8 @@
                                     onclick="loadPage('./Pages/Support.html'); setActive(this);">Support</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" aria-current="page" href="https://shop.wolfpack.com/" target="_blank">Shop</a>
+                                <a class="nav-link" aria-current="page" href="https://shop.wolfpack.com/"
+                                    target="_blank">Shop</a>
                             </li>
                             <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page" href="#"
@@ -119,86 +128,89 @@
         </nav>
         <div class="mainsection" id="content">
         </div>
-        <div class="footer p-4">
-            <div class="part-1">
-                <div class="part-1-1" style="width: 33%;">
-                    <img src="./Assets/Images/logo.png" class="logo-img" alt="">
-                    <p class="fs-16 mt-2">Wolfpack empowers the millennial generation to discover new investment
-                        opportunities, easily trade in and out of investment positions, and grow your investment
-                        portfolio.</p>
-                    <div class="social-icon">
-                        <svg class="soc-ico" width="40" height="32" viewBox="0 0 40 32" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M15.4865 32C17.8792 31.9892 20.2716 31.9133 22.6631 31.7727V16.1838H27.4248L28 10.5819H22.6631V7.02473C22.6631 6.23906 23.3442 5.6022 24.1845 5.6022H28V0H21.9648C18.3868 0 15.4865 2.71205 15.4865 6.05743V10.5819H12V16.1838H15.4865V32Z"
-                                fill="white" />
-                        </svg>
-                        <svg class="soc-ico" width="40" height="32" viewBox="0 0 40 32" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M40 3.79536C38.5722 4.52862 36.4217 4.86745 35.7088 4.96509C35.7029 4.93126 35.697 4.89887 35.6911 4.86649C38.1149 3.39465 38.8568 0.623537 38.8568 0.623537C37.3557 1.46604 36.0328 1.93345 35.0363 2.19253C34.476 2.33995 34.0187 2.41971 33.6898 2.46418C32.1793 0.943522 30.0702 0 27.7355 0C23.1421 0 19.4176 3.65567 19.4176 8.16688C19.4176 8.32929 19.422 8.49073 19.4328 8.65073C19.455 9.04177 19.5057 9.42604 19.584 9.79968C17.3606 9.76729 9.33511 9.09784 2.68469 1.51341C2.68469 1.51341 -1.01863 7.85705 5.20739 12.1904C5.20739 12.1904 2.68469 12.113 1.34554 11.1845C1.34554 11.1845 0.951678 17.2971 8.12249 19.2305C8.12249 19.2305 5.60126 19.8502 4.33941 19.3084C4.33941 19.3084 5.60077 24.5693 11.9051 24.9569C11.9051 24.9569 7.3835 29.021 0 28.4362C3.63144 30.6935 7.93688 32 12.553 32C25.5323 32 36.0545 21.6701 36.0545 8.92721C36.0545 8.76818 36.053 8.60916 36.0495 8.45013C36.053 8.35588 36.0545 8.2621 36.0545 8.16688C36.0545 8.10066 36.053 8.03444 36.052 7.96822C38.4516 6.39826 40 3.79536 40 3.79536Z"
-                                fill="white" />
-                        </svg>
-                        <svg class="soc-ico" width="40" height="32" viewBox="0 0 40 32" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.63725 10.8062H11.3712V31.998H4.63725V10.8062Z" fill="white" />
-                            <path
-                                d="M29.2656 10.3516C24.3308 10.3516 22.1631 13.1357 21.6175 13.9833V10.8076H15.4124V31.9995H22.1468V21.3547C22.1468 18.2787 23.5416 15.886 26.1873 15.886C28.8326 15.886 29.2656 18.8644 29.2656 22.5268V31.9995H36V17.1877C36 13.4122 32.9849 10.3516 29.2656 10.3516Z"
-                                fill="white" />
-                            <path
-                                d="M12.0171 4.06932C12.0171 6.31667 10.2226 8.13825 8.00872 8.13825C5.79485 8.13825 4 6.31667 4 4.06932C4 1.82198 5.79485 0 8.00872 0C10.2226 0 12.0171 1.82198 12.0171 4.06932Z"
-                                fill="white" />
-                        </svg>
-                        <svg class="soc-ico" width="40" height="32" viewBox="0 0 40 32" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_3609_301)">
+        <div class="footer p-4 w-100">
+            <div class="max-width mx-auto" style="max-width: 1380px;">
+                <div class="part-1">
+                    <div class="part-1-1" style="width: 33%;">
+                        <img src="./Assets/Images/logo.png" class="logo-img" alt="">
+                        <p class="fs-16 mt-4">Wolfpack empowers the millennial generation to discover new investment
+                            opportunities, easily trade in and out of investment positions, and grow your investment
+                            portfolio.</p>
+                        <div class="social-icon mt-4">
+                            <svg class="soc-ico" width="40" height="32" viewBox="0 0 40 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M26 0H14C8.478 0 4 4.478 4 10V22C4 27.522 8.478 32 14 32H26C31.522 32 36 27.522 36 22V10C36 4.478 31.522 0 26 0ZM33 22C33 25.86 29.86 29 26 29H14C10.14 29 7 25.86 7 22V10C7 6.14 10.14 3 14 3H26C29.86 3 33 6.14 33 10V22Z"
+                                    d="M15.4865 32C17.8792 31.9892 20.2716 31.9133 22.6631 31.7727V16.1838H27.4248L28 10.5819H22.6631V7.02473C22.6631 6.23906 23.3442 5.6022 24.1845 5.6022H28V0H21.9648C18.3868 0 15.4865 2.71205 15.4865 6.05743V10.5819H12V16.1838H15.4865V32Z"
+                                    fill="white" />
+                            </svg>
+                            <svg class="soc-ico" width="40" height="32" viewBox="0 0 40 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M40 3.79536C38.5722 4.52862 36.4217 4.86745 35.7088 4.96509C35.7029 4.93126 35.697 4.89887 35.6911 4.86649C38.1149 3.39465 38.8568 0.623537 38.8568 0.623537C37.3557 1.46604 36.0328 1.93345 35.0363 2.19253C34.476 2.33995 34.0187 2.41971 33.6898 2.46418C32.1793 0.943522 30.0702 0 27.7355 0C23.1421 0 19.4176 3.65567 19.4176 8.16688C19.4176 8.32929 19.422 8.49073 19.4328 8.65073C19.455 9.04177 19.5057 9.42604 19.584 9.79968C17.3606 9.76729 9.33511 9.09784 2.68469 1.51341C2.68469 1.51341 -1.01863 7.85705 5.20739 12.1904C5.20739 12.1904 2.68469 12.113 1.34554 11.1845C1.34554 11.1845 0.951678 17.2971 8.12249 19.2305C8.12249 19.2305 5.60126 19.8502 4.33941 19.3084C4.33941 19.3084 5.60077 24.5693 11.9051 24.9569C11.9051 24.9569 7.3835 29.021 0 28.4362C3.63144 30.6935 7.93688 32 12.553 32C25.5323 32 36.0545 21.6701 36.0545 8.92721C36.0545 8.76818 36.053 8.60916 36.0495 8.45013C36.053 8.35588 36.0545 8.2621 36.0545 8.16688C36.0545 8.10066 36.053 8.03444 36.052 7.96822C38.4516 6.39826 40 3.79536 40 3.79536Z"
+                                    fill="white" />
+                            </svg>
+                            <svg class="soc-ico" width="40" height="32" viewBox="0 0 40 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.63725 10.8062H11.3712V31.998H4.63725V10.8062Z" fill="white" />
+                                <path
+                                    d="M29.2656 10.3516C24.3308 10.3516 22.1631 13.1357 21.6175 13.9833V10.8076H15.4124V31.9995H22.1468V21.3547C22.1468 18.2787 23.5416 15.886 26.1873 15.886C28.8326 15.886 29.2656 18.8644 29.2656 22.5268V31.9995H36V17.1877C36 13.4122 32.9849 10.3516 29.2656 10.3516Z"
                                     fill="white" />
                                 <path
-                                    d="M19.9922 8.00146C15.5742 8.00146 11.9922 11.5835 11.9922 16.0015C11.9922 20.4195 15.5742 24.0015 19.9922 24.0015C24.4102 24.0015 27.9922 20.4195 27.9922 16.0015C27.9922 11.5835 24.4102 8.00146 19.9922 8.00146ZM19.9922 21.0015C17.2362 21.0015 14.9922 18.7575 14.9922 16.0015C14.9922 13.2435 17.2362 11.0015 19.9922 11.0015C22.7482 11.0015 24.9922 13.2435 24.9922 16.0015C24.9922 18.7575 22.7482 21.0015 19.9922 21.0015Z"
+                                    d="M12.0171 4.06932C12.0171 6.31667 10.2226 8.13825 8.00872 8.13825C5.79485 8.13825 4 6.31667 4 4.06932C4 1.82198 5.79485 0 8.00872 0C10.2226 0 12.0171 1.82198 12.0171 4.06932Z"
                                     fill="white" />
-                                <path
-                                    d="M28.587 8.46532C29.1757 8.46532 29.6529 7.9881 29.6529 7.39941C29.6529 6.81072 29.1757 6.3335 28.587 6.3335C27.9983 6.3335 27.5211 6.81072 27.5211 7.39941C27.5211 7.9881 27.9983 8.46532 28.587 8.46532Z"
-                                    fill="white" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_3609_301">
-                                    <rect width="32" height="32" fill="white" transform="translate(4)" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+                            </svg>
+                            <svg class="soc-ico" width="40" height="32" viewBox="0 0 40 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_3609_301)">
+                                    <path
+                                        d="M26 0H14C8.478 0 4 4.478 4 10V22C4 27.522 8.478 32 14 32H26C31.522 32 36 27.522 36 22V10C36 4.478 31.522 0 26 0ZM33 22C33 25.86 29.86 29 26 29H14C10.14 29 7 25.86 7 22V10C7 6.14 10.14 3 14 3H26C29.86 3 33 6.14 33 10V22Z"
+                                        fill="white" />
+                                    <path
+                                        d="M19.9922 8.00146C15.5742 8.00146 11.9922 11.5835 11.9922 16.0015C11.9922 20.4195 15.5742 24.0015 19.9922 24.0015C24.4102 24.0015 27.9922 20.4195 27.9922 16.0015C27.9922 11.5835 24.4102 8.00146 19.9922 8.00146ZM19.9922 21.0015C17.2362 21.0015 14.9922 18.7575 14.9922 16.0015C14.9922 13.2435 17.2362 11.0015 19.9922 11.0015C22.7482 11.0015 24.9922 13.2435 24.9922 16.0015C24.9922 18.7575 22.7482 21.0015 19.9922 21.0015Z"
+                                        fill="white" />
+                                    <path
+                                        d="M28.587 8.46532C29.1757 8.46532 29.6529 7.9881 29.6529 7.39941C29.6529 6.81072 29.1757 6.3335 28.587 6.3335C27.9983 6.3335 27.5211 6.81072 27.5211 7.39941C27.5211 7.9881 27.9983 8.46532 28.587 8.46532Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_3609_301">
+                                        <rect width="32" height="32" fill="white" transform="translate(4)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
 
 
+                        </div>
+                    </div>
+                    <div class="part-1-1">
+                        <p class="fs-24">Quick Links</p>
+                        <ul>
+                            <li class="text-start fs-16">Terms & Conditions</li>
+                            <li class="text-start fs-16">Boostre Loans - Terms</li>
+                            <li class="text-start fs-16">Privacy Policy</li>
+                            <li class="text-start fs-16">Disclaimer</li>
+                            <li class="text-start fs-16">Close Account</li>
+                            <li class="text-start fs-16">Licensing</li>
+                        </ul>
+                    </div>
+                    <div class="part-1-1">
+                        <p class="fs-24 text-start">Contact Us</p>
+                        <p class="fs-16" style="max-width: 50%;">500 7th Avenue,8th Floor. New York,
+                            NY 10018, United States</p>
+                        <p class="fs-16">support@wolfpack.com</p>
                     </div>
                 </div>
-                <div class="part-1-1">
-                    <p class="fs-24">Quick Links</p>
-                    <ul>
-                        <li class="text-start fs-16">Terms & Conditions</li>
-                        <li class="text-start fs-16">Boostre Loans - Terms</li>
-                        <li class="text-start fs-16">Privacy Policy</li>
-                        <li class="text-start fs-16">Disclaimer</li>
-                        <li class="text-start fs-16">Close Account</li>
-                        <li class="text-start fs-16">Licensing</li>
-                    </ul>
+                <div class="part-2">
+                    <hr>
+                    <p class="fs-16 text-center copy">Copyright © 2024 Wolfpack Financial Inc (New York, NY 10018).
+                        All Rights Reserved.</p>
                 </div>
-                <div class="part-1-1">
-                    <p class="fs-24 text-start">Contact Us</p>
-                    <p class="fs-16" style="max-width: 50%;">500 7th Avenue,8th Floor. New York,
-                        NY 10018, United States</p>
-                    <p class="fs-16">support@wolfpack.com</p>
-                </div>
-            </div>
-            <div class="part-2">
-                <hr>
-                <p class="fs-16 text-center copy">Copyright © 2024 Wolfpack Financial Inc (New York, NY 10018).
-                    All Rights Reserved.</p>
             </div>
         </div>
     </div>
     <div class="dailog d-none  pb-4 pt-1 px-4">
-        <button style="border: none;" class="fs-32 bg-transparent w-100 text-end mb-0" onclick="opendailog()"><i class="fa-regular fa-circle-xmark" style="color: #ffffff;"></i></button>
+        <button style="border: none;" class="fs-32 bg-transparent w-100 text-end mb-0" onclick="opendailog()"><i
+                class="fa-regular fa-circle-xmark" style="color: #ffffff;"></i></button>
         <p class="fs-24 text-center fw-bold">Join Our Waitlist</p>
         <form action="">
             <div class="w-100">
@@ -253,10 +265,10 @@
     <script>
         // AOS.init();
         AOS.init({
-  duration: 2000,  // Animation duration
-  once: true,      // Ensures animation runs only once
-  mirror: false    // Prevents reverse animation
-});
+            duration: 2000,  // Animation duration
+            once: true,      // Ensures animation runs only once
+            mirror: false    // Prevents reverse animation
+        });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
