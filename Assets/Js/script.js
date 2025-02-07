@@ -60,7 +60,7 @@ function loadPage(page) {
 
 // Load the home page by default when the site first opens
 document.addEventListener("DOMContentLoaded", async function () {
-    await loadPage('./Pages/Licencing.html');
+    await loadPage('./Pages/Dashboard.html');
 });
 
 // ----------------------------------------------------------------------------------------- ANimations -------------------------------------------------------------------------------------
@@ -160,20 +160,129 @@ const otherfunctions = () => {
 }
 
 // -----------------------------------------------------------------------------popup -----------------------------------------------------------------------------------
- const opendailog = ()=>{
-    const dailog=   document.querySelector('.dailog')
-    const body =   document.querySelector('.body')
-    if (dailog.classList.contains('d-none')){
-       dailog.classList.remove('d-none')
-       body.classList.add('blur')
+const opendailog = () => {
+    const dailog = document.querySelector('.dailog')
+    const body = document.querySelector('.body')
+    if (dailog.classList.contains('d-none')) {
+        dailog.classList.remove('d-none')
+        body.classList.add('blur')
     }
-    else{
+    else {
         dailog.classList.add('d-none')
         body.classList.remove('blur')
 
     }
-        
- }
+
+}
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("./Assets/Json/country.json") 
+        .then(response => response.json()) 
+        .then(data => {
+            const countrySelect = document.getElementById("countrySelect");
+
+            data.forEach(country => {
+                let option = document.createElement("option");
+                option.value = country.code; 
+                option.textContent = country.name; 
+                countrySelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error("Error loading JSON:", error));
+});
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("./Assets/Json/states.json")
+        .then(response => response.json())
+        .then(data => {
+            const stateSelect = document.getElementById("stateSelect");
+            data.forEach(state => {
+                let option = document.createElement("option");
+                option.value = state.code;
+                option.textContent = state.name;
+                stateSelect.appendChild(option);
+            })
+        })
+        .catch(error => console.error("Error loading JSON:", error));
+});
+document.getElementById('countrySelect').addEventListener('change', function () {
+    const country = this.value;
+    const stateSelect = document.getElementById('stateSelect');
+
+    if (country === 'US') {
+        stateSelect.classList.remove('d-none'); 
+    } else {
+        stateSelect.classList.add('d-none'); 
+        stateSelect.value = null; 
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const countrySelect = document.getElementById("countrySelect");
+    const stateSelect = document.getElementById("stateSelect");
+    const dialog = document.querySelector(".dailog"); 
+    const body = document.querySelector(".body"); 
+    function updateStateDropdown() {
+        if (countrySelect.value === "United States") {
+            stateSelect.innerHTML = '<option value="Alaska" selected>Alaska</option>';
+            stateSelect.disabled = false; 
+        } else {
+            stateSelect.innerHTML = '<option value="" selected>Not Applicable</option>';
+            stateSelect.disabled = true; 
+        }
+    }
+    updateStateDropdown();
+    countrySelect.addEventListener("change", updateStateDropdown);
+
+    document.getElementById("submitBtn").addEventListener("click", function () {
+        const firstNameInput = document.querySelector("input[placeholder='First Name']");
+        const lastNameInput = document.querySelector("input[placeholder='Last Name']");
+        const emailInput = document.querySelector("input[placeholder='Email']");
+        const firstName = firstNameInput.value.trim();
+        const lastName = lastNameInput.value.trim();
+        const email = emailInput.value.trim();
+        const countryName = countrySelect.options[countrySelect.selectedIndex].text;
+        let stateName = stateSelect.disabled ? null : stateSelect.options[stateSelect.selectedIndex].text;
+        if (!firstName || !lastName || !email) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+        const emailText = `
+            First Name: ${firstName}
+            Last Name: ${lastName}
+            Email: ${email}
+            Country: ${countryName}
+            State: ${stateName ? stateName : "null"}
+        `;
+
+        const requestBody = {
+            subject: "Booster Loan Waitlist",
+            text: emailText
+        };
+
+        fetch("https://pke7n2df83.execute-api.us-east-1.amazonaws.com/default/sendEmail", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Email sent successfully!");
+            console.log("Success:", data);
+            firstNameInput.value = "";
+            lastNameInput.value = "";
+            emailInput.value = "";
+            countrySelect.value = "United States";
+            updateStateDropdown(); 
+            dialog.classList.add("d-none");
+            body.classList.remove("blur");
+
+        })
+        .catch(error => {
+            alert("Failed to send email. Please try again.");
+            console.error("Error:", error);
+        });
+    });
+});
 
 // ----------------------------------------------------------------------------------------- Mail ----------------------------------------------------------------------------------------
 
