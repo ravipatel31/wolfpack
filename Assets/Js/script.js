@@ -285,8 +285,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // document.addEventListener("DOMContentLoaded", function () {
     const supportSubmitBtn = document.getElementById("supportSubmitBtn");
-const vansh=(event)=>{
-    console.log("Hello")
+const support=()=>{
+    
     // event.preventDefault(); // Prevent default form submission
 
         const fullNameInput = document.querySelector("input[placeholder='Full Name']");
@@ -303,7 +303,7 @@ const vansh=(event)=>{
         }
 
         const requestBody = {
-            subject: "User Inquiry - Wolfpack Team",
+            subject: "Contact Us",
             text: `
                 Full Name: ${fullName}
                 Email: ${email}
@@ -335,8 +335,54 @@ const vansh=(event)=>{
     supportSubmitBtn.addEventListener("click", function (event) {
         
     });
-// });
 
+    const newsletter=()=>{
+    
+        // event.preventDefault(); // Prevent default form submission
+    
+            const fullNameInput = document.querySelector("input[placeholder='Full Name']");
+            const emailInput = document.querySelector("input[placeholder='Email']");
+    
+            const fullName = fullNameInput.value.trim();
+            const email = emailInput.value.trim();
+
+    
+            if (!fullName || !email) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+    
+            const requestBody = {
+                subject: "Newsletter",
+                text: `
+                    Full Name: ${fullName}
+                    Email: ${email}
+                `
+            };
+    
+            fetch("https://pke7n2df83.execute-api.us-east-1.amazonaws.com/default/sendEmail", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Message sent successfully!");
+                console.log("Success:", data);
+                fullNameInput.value = "";
+                emailInput.value = "";
+            })
+            .catch(error => {
+                alert("Failed to send message. Please try again.");
+                console.error("Error:", error);
+            });
+        
+    }
+        supportSubmitBtn.addEventListener("click", function (event) {
+            
+        });
 
 // ----------------------------------------------------------------------------------------- Mail ----------------------------------------------------------------------------------------
 
