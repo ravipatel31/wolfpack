@@ -283,6 +283,60 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+// document.addEventListener("DOMContentLoaded", function () {
+    const supportSubmitBtn = document.getElementById("supportSubmitBtn");
+const vansh=(event)=>{
+    console.log("Hello")
+    // event.preventDefault(); // Prevent default form submission
+
+        const fullNameInput = document.querySelector("input[placeholder='Full Name']");
+        const emailInput = document.querySelector("input[placeholder='Email']");
+        const messageInput = document.querySelector("textarea");
+
+        const fullName = fullNameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if (!fullName || !email || !message) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        const requestBody = {
+            subject: "User Inquiry - Wolfpack Team",
+            text: `
+                Full Name: ${fullName}
+                Email: ${email}
+                Message: ${message}
+            `
+        };
+
+        fetch("https://pke7n2df83.execute-api.us-east-1.amazonaws.com/default/sendEmail", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Message sent successfully!");
+            console.log("Success:", data);
+            fullNameInput.value = "";
+            emailInput.value = "";
+            messageInput.value = "";
+        })
+        .catch(error => {
+            alert("Failed to send message. Please try again.");
+            console.error("Error:", error);
+        });
+    
+}
+    supportSubmitBtn.addEventListener("click", function (event) {
+        
+    });
+// });
+
 
 // ----------------------------------------------------------------------------------------- Mail ----------------------------------------------------------------------------------------
 
