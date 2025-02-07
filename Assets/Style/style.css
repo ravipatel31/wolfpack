@@ -21,7 +21,36 @@
     font-weight: 700;
     font-style: normal;
 }
+.dailog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    height: 681px;
+    width: 520px;
+    border-radius: 20px;
+    background: #000000;
+    border: 1px solid #a3a3a3;
+}
 
+.blur {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.h-48 {
+    height: 48px !important;
+}
+
+#stateSelect ,#countrySelect {
+    color: white;
+}
+
+#stateSelect option,   #countrySelect option  {
+    background-color: transparent !important;
+    color: black !important;
+}
 .light-theme {
     --bg-color: #ffffff;
     --text-color: #000000;
@@ -56,6 +85,7 @@
 }
 .nav-link.active {
     color: #F2674A !important;  /* Change active link color */
+    border-bottom: 3px solid #F2674A;
 }
 
 .dropdown-item:hover {
@@ -821,7 +851,7 @@ body {
     to{transform:translateY(-10px);display: none; opacity: 0; }
 }
 .payment{
-    width: 49% ;
+    width: 49% !important;
     display: flex;
     align-items: center;
     justify-content: space-between;

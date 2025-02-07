@@ -15,29 +15,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
-<style>
-    .dailog {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 3;
-        height: 681px;
-        width: 520px;
-        border-radius: 20px;
-        background: #000000;
-        border: 1px solid #a3a3a3;
-    }
-
-    .blur {
-        filter: blur(5px);
-        pointer-events: none;
-    }
-
-    .h-48 {
-        height: 48px !important;
-    }
-</style>
 
 <body>
     <div class="body">
@@ -66,53 +43,53 @@
                             data-bs-auto-close="outside">
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-light" href="#" role="button"
+                                <a class="nav-link dropdown-toggle text-light fw-bold" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false"
                                     onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
                                     Licensing
 
                                 </a>
                                 <ul class="dropdown-menu bg-dark">
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
                                             href="#"
-                                            onclick="loadPage('./Pages/Boosterloan.html'); setActive(this);">Booster
+                                            onclick="loadPage('./Pages/BoosterLoans.html'); setActive(this);">Booster
                                             Loans</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
                                             href="#"
                                             onclick="loadPage('./Pages/Premiumdata&signal.html'); setActive(this);">Premium
                                             Data & Signals</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
                                             onclick="loadPage('./Pages/Mobile.html'); setActive(this);"
                                             href="#">Mobile</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
                                             onclick="loadPage('./Pages/AIDriven.html'); setActive(this);"
                                             href="#">Discovery</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
                                             onclick="loadPage('./Pages/Customise_development.html'); setActive(this);"
                                             href="#">Customized Development</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link"
+                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
                                             onclick="loadPage('./Pages/AIservice.html'); setActive(this);" href="#">AI
                                             Services</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page" href="#"
+                                <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
                                     onclick="loadPage('./Pages/Partners.html');setActive(this);">Partners</a>
                             </li>
                             <li class="nav-item">
-                                <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page" href="#"
+                                <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
                                     onclick="loadPage('./Pages/Fees.html'); setActive(this);">Fees</a>
                             </li>
                             <li class="nav-item">
-                                <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page" href="#"
+                                <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
                                     onclick="loadPage('./Pages/Support.html'); setActive(this);">Support</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" aria-current="page" href="https://shop.wolfpack.com/"
+                                <a class="nav-link fw-bold" aria-current="page" href="https://shop.wolfpack.com/"
                                     target="_blank">Shop</a>
                             </li>
                             <li class="nav-item">
-                                <a data-bs-dismiss="offcanvas" class="nav-link" aria-current="page" href="#"
+                                <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
                                     onclick="loadPage('./Pages/FAQ.html'); setActive(this);">FAQ's</a>
                             </li>
                         </ul>
@@ -232,31 +209,27 @@
                 </div>
             </div>
             <div class="w-100">
-                <span class="text-secondary col-12 mb-2">Country <span style="color: red;">*</span></span>
+                <span class="text-secondary col-12 mb-2">
+                    Country <span style="color: red;">*</span>
+                </span>
                 <div class="input-container px-0 mt-2 col-12">
-                    <select class="input col-12 fs-6 ps-3 h-48" placeholder="Country">
-                        <optgroup class="bg-dark p-0">
-                            <option value="Ravi">Ravi</option>
-                            <option value="Raj" selected>Raj</option>
-                            <option value="Raj">Jeel</option>
-                        </optgroup>
+                    <select id="countrySelect" class="input col-12 bg-transparent fs-6 ps-3 h-48">
+                        <option value="United States" selected>United States</option>
                     </select>
                 </div>
             </div>
             <div class="w-100">
-                <span class="text-secondary col-12 mb-2">State <span style="color: red;">*</span></span>
+                <span class="text-secondary col-12 mb-2 state-label">
+                    State <span style="color: red;">*</span>
+                </span>
                 <div class="input-container px-0 mt-2 col-12">
-                    <select class="input col-12 fs-6 ps-3 h-48" placeholder="State">
-                        <optgroup class="bg-dark">
-                            <option value="Ravi">Ravi</option>
-                            <option value="Raj">Raj</option>
-                            <option value="Raj" selected>Jeel</option>
-                        </optgroup>
+                    <select id="stateSelect" class="input col-12 fs-6 ps-3 h-48">
+                        <option value="Alaska" selected>Alaska</option>
                     </select>
-
                 </div>
             </div>
-            <button type="button"
+
+            <button type="button" id="submitBtn"
                 class="btn btn-orange glow-button btn-ani submit-btn btn-2 px-5 d-flex justify-content-center text-white glow-button mx-auto">Submit</button>
         </form>
 
