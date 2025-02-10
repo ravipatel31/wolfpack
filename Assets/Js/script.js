@@ -61,6 +61,7 @@ function loadPage(page) {
 // Load the home page by default when the site first opens
 document.addEventListener("DOMContentLoaded", async function () {
     await loadPage('./Pages/Dashboard.html');
+
 });
 
 // ----------------------------------------------------------------------------------------- ANimations -------------------------------------------------------------------------------------
@@ -219,6 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const stateSelect = document.getElementById("stateSelect");
     const dialog = document.querySelector(".dailog"); 
     const body = document.querySelector(".body"); 
+
     function updateStateDropdown() {
         if (countrySelect.value === "United States") {
             stateSelect.innerHTML = '<option value="Alaska" selected>Alaska</option>';
@@ -228,10 +230,13 @@ document.addEventListener("DOMContentLoaded", function () {
             stateSelect.disabled = true; 
         }
     }
+
     updateStateDropdown();
     countrySelect.addEventListener("change", updateStateDropdown);
 
-    document.getElementById("submitBtn").addEventListener("click", function () {
+    document.getElementById("submitBtn").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevents default button behavior
+
         const firstNameInput = document.querySelector("input[placeholder='First Name']");
         const lastNameInput = document.querySelector("input[placeholder='Last Name']");
         const emailInput = document.querySelector("input[placeholder='Email']");
@@ -240,10 +245,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = emailInput.value.trim();
         const countryName = countrySelect.options[countrySelect.selectedIndex].text;
         let stateName = stateSelect.disabled ? null : stateSelect.options[stateSelect.selectedIndex].text;
+
+        // Email validation regex pattern
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        // Check if required fields are filled
         if (!firstName || !lastName || !email) {
             alert("Please fill in all required fields.");
             return;
         }
+
+        // Validate email format
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
         const emailText = `
             First Name: ${firstName}
             Last Name: ${lastName}
@@ -264,7 +281,12 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify(requestBody)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Server responded with ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             alert("Email sent successfully!");
             console.log("Success:", data);
@@ -275,19 +297,17 @@ document.addEventListener("DOMContentLoaded", function () {
             updateStateDropdown(); 
             dialog.classList.add("d-none");
             body.classList.remove("blur");
-
         })
         .catch(error => {
-            alert("Failed to send email. Please try again.");
+            alert(`Failed to send email. Error: ${error.message}`);
             console.error("Error:", error);
         });
     });
 });
-// document.addEventListener("DOMContentLoaded", function () {
-    const supportSubmitBtn = document.getElementById("supportSubmitBtn");
-const support=()=>{
+
+const support=(event)=>{
     
-    // event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevent default form submission
 
         const fullNameInput = document.querySelector("input[placeholder='Full Name']");
         const emailInput = document.querySelector("input[placeholder='Email']");
@@ -332,58 +352,60 @@ const support=()=>{
         });
     
 }
-    supportSubmitBtn.addEventListener("click", function (event) {
-        
-    });
 
-    const newsletter=()=>{
-    
-        // event.preventDefault(); // Prevent default form submission
-    
-            const fullNameInput = document.querySelector("input[placeholder='Full Name']");
-            const emailInput = document.querySelector("input[placeholder='Email']");
-    
-            const fullName = fullNameInput.value.trim();
-            const email = emailInput.value.trim();
+const newsletter = (event) => {
+    event.preventDefault(); // Prevents page from refreshing on form submission
 
-    
-            if (!fullName || !email) {
-                alert("Please fill in all required fields.");
-                return;
-            }
-    
-            const requestBody = {
-                subject: "Newsletter",
-                text: `
-                    Full Name: ${fullName}
-                    Email: ${email}
-                `
-            };
-    
-            fetch("https://pke7n2df83.execute-api.us-east-1.amazonaws.com/default/sendEmail", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(requestBody)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert("Message sent successfully!");
-                console.log("Success:", data);
-                fullNameInput.value = "";
-                emailInput.value = "";
-            })
-            .catch(error => {
-                alert("Failed to send message. Please try again.");
-                console.error("Error:", error);
-            });
-        
+    const fullNameInput = document.getElementById("Fullname");
+    const emailInput = document.getElementById("Email");
+
+    const fullName = fullNameInput.value.trim();
+    const email = emailInput.value.trim();
+
+    // Email validation regex pattern
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Check if required fields are filled
+    if (!fullName || !email) {
+        alert("Please fill in all required fields.");
+        return;
     }
-        supportSubmitBtn.addEventListener("click", function (event) {
-            
-        });
 
+    // Validate email format
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    const requestBody = {
+        subject: "Newsletter",
+        text: `Full Name: ${fullName}\nEmail: ${email}`
+    };
+
+    fetch("https://pke7n2df83.execute-api.us-east-1.amazonaws.com/default/sendEmail", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Server responded with ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert("Message sent successfully!");
+        console.log("Success:", data);
+        fullNameInput.value = "";
+        emailInput.value = "";
+    })
+    .catch(error => {
+        alert(`Failed to send message. Error: ${error.message}`);
+        console.error("Error details:", error);
+    });
+};
 // ----------------------------------------------------------------------------------------- Mail ----------------------------------------------------------------------------------------
 
 // (function() {
