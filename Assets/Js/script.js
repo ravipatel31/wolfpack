@@ -66,7 +66,7 @@ function showToast(message) {
   
   function launchConfetti() {
     const canvas = document.querySelector('.confetti-canvas');
-    const card = document.querySelector('.card');
+    const card = document.querySelector('.referfriend');
 
     // Set canvas size
     canvas.width = card.offsetWidth;
@@ -95,27 +95,14 @@ const observer = new IntersectionObserver((entries) => {
 }, {
     threshold: 0.8
 });
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         observer.observe(document.querySelector('.referfriend'));
-    }, 5000); // Trigger confetti after 5 seconds
-});
-
-// Trigger confetti on page load
-window.addEventListener('load', launchConfetti);
-
-// Trigger confetti on page load
-window.addEventListener('load', launchConfetti);
-
-// Trigger confetti when the card is in view
-window.addEventListener('load', launchConfetti);
-
-// Trigger confetti on page load
-window.onload = launchConfetti;
+    }, 5000); 
+// });
 // -------------------------------------------------------------------------------- Load theme from localStorage -----------------------------------------------------------------------------
 
 function loadPage(page) {
-    document.getElementById("loading").style.display = "block";
     // document.getElementById("content").style.display = "none";
     fetch(page)
         .then(response => response.text())
@@ -123,13 +110,7 @@ function loadPage(page) {
             document.getElementById("content").innerHTML = data;
         })
         .catch(error => console.error("Error loading the page:", error))
-        .finally(() => {
-            // Hide the loading spinner and show the content
-            document.getElementById("loading").style.display = "none";
-            // document.getElementById("content").style.display = "b/lock";
-        });
-
-
+        
     setTimeout(otherfunctions, 500);
 }
 
