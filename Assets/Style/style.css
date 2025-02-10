@@ -70,7 +70,7 @@
     background-color: var(--bg-color) !important;
 }
 
-.nav-item.dropdown:hover .dropdown-menu {
+.opendropdown:hover .dropdown-menu {
     display: block !important;
 }
 .nav-item{
@@ -95,6 +95,8 @@
 .dropdown-item.active{
     background-color: transparent !important;
 }
+
+
 .dailog {
     position: fixed;
     top: 50%;

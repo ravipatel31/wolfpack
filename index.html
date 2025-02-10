@@ -22,7 +22,7 @@
             <div class="container-fluid" style="max-width: 1380px;" data-aos="fade-down" data-aos-duration="1500">
                 <a data-bs-dismiss="offcanvas" href="/"
                     class="d-flex align-items-center col-md-2 mb-2 mb-md-0text-light text-decoration-none">
-                    <img src="../wolfpack/Assets/Images/logo.png" width="200px" alt="">
+                    <img src="../wolfpack/Assets/Images/logo.png"  onclick="loadPage('../../wolfpack/Pages/Dashboard.html'); setActive(this);" width="200px" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
@@ -42,7 +42,7 @@
                             class="navbar-nav justify-content-center fs-5 gap-md-4 flex-grow-1 pe-3"
                             data-bs-auto-close="outside">
 
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown opendropdown">
                                 <a class="nav-link dropdown-toggle text-light fw-bold" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false"
                                     onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
@@ -50,27 +50,17 @@
 
                                 </a>
                                 <ul class="dropdown-menu bg-dark">
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
-                                            href="#"
-                                            onclick="loadPage('./Pages/BoosterLoans.html'); setActive(this);">Booster
-                                            Loans</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
-                                            href="#"
-                                            onclick="loadPage('./Pages/Premiumdata&signal.html'); setActive(this);">Premium
-                                            Data & Signals</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
-                                            onclick="loadPage('./Pages/Mobile.html'); setActive(this);"
-                                            href="#">Mobile</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
-                                            onclick="loadPage('./Pages/AIDriven.html'); setActive(this);"
-                                            href="#">Discovery</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
-                                            onclick="loadPage('./Pages/Customise_development.html'); setActive(this);"
-                                            href="#">Customized Development</a></li>
-                                    <li><a data-bs-dismiss="offcanvas" class="dropdown-item text-light nav-link fw-bold"
-                                            onclick="loadPage('./Pages/AIservice.html'); setActive(this);" href="#">AI
-                                            Services</a></li>
-                                </ul>
+                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#"  onclick="loadPage('./Pages/BoosterLoans.html'); setActive(this);">Booster
+                                        Loans</a></li>
+                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#"onclick="loadPage('./Pages/Premiumdata&signal.html'); setActive(this);">Premium
+                                        Data & Signals</a></li>
+                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#"  onclick="loadPage('./Pages/Mobile.html'); setActive(this);">Mobile</a></li>
+                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#" onclick="loadPage('./Pages/AIDriven.html'); setActive(this);">Discovery</a></li>
+                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#" onclick="loadPage('./Pages/Customise_development.html'); setActive(this);">Customized Development</a></li>
+                                   
+                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#"onclick="loadPage('./Pages/AIservice.html'); setActive(this);">AI
+                                        Services</a></li>
+                                  </ul>
                             </li>
                             <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
@@ -83,7 +73,7 @@
                             
                             <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
-                                    onclick="loadPage('./Pages/Support.html'); setActive(this);">Support</a>
+                                    onclick="loadPage('./Pages/Support.html'); setActive(this); ">Support</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link fw-bold" aria-current="page" href="https://shop.wolfpack.com/"
@@ -95,8 +85,8 @@
                             </li>
                         </ul>
                         <div class=" col-md-2 text-end d-flex flex-column flex-md-row">
-                            <button type="button"
-                                class="glow-button py-2 btn-orange btn-2 px-5 text-white">Login</button>
+                            <a href=" https://trading.wolfpack.com" target="_blank"><button type="button"
+                                class="glow-button py-2 btn-orange btn-2 px-5 text-white">Login</button></a>
                             <!-- <button type="button" class="btn btn-primary btn-2 switch" onclick="toggleTheme()">Toggle
                                 Button</button> -->
                         </div>
@@ -104,7 +94,13 @@
                 </div>
             </div>
         </nav>
+        <div id="loading"  class="text-white" style="display: none; height:calc(100vh); width: 100%; text-align: center; display: flex; align-items: center; justify-content: center;">
+            <div class="spinner-border text-primary" role="status">
+                <img src="../wolfpack/Assets/Loader/loader.gif" alt="">
+            </div>
+        </div>
         <div class="mainsection" id="content">
+            
         </div>
         <div class="footer p-4 w-100">
             <div class="max-width mx-auto" style="max-width: 1380px;">
@@ -249,169 +245,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="./Assets/Js/script.js"></script>
-
-
-    <!-- <script>
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-
-            // Save user preference
-            if (document.body.classList.contains('light-theme')) {
-                localStorage.setItem('theme', 'light');
-            } else {
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-        function setActive(element) {
-            // Remove 'active' class from all nav links
-            document.querySelectorAll(".nav-link").forEach(item => {
-                item.classList.remove("active");
-            });
-
-            // Add 'active' class to the clicked link
-            element.classList.add("active");
-        }
-        function showmore(element) {
-            const siblings = element.nextElementSibling;
-            if (siblings.lastElementChild.classList.contains('text-up')) {
-                siblings.lastElementChild.classList.remove('text-up');
-                siblings.lastElementChild.classList.add('text-down');
-                element.innerHTML = '-'
-            }
-            else {
-                siblings.lastElementChild.classList.add('text-up');
-                siblings.lastElementChild.classList.remove('text-down');
-                element.innerHTML = '+'
-
-            }
-            //    console.log(siblings.lastElementChild.classList);
-
-        }
-
-
-        // Load theme from localStorage
-        window.onload = function () {
-            if (localStorage.getItem('theme') === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        };
-        function loadPage(page) {
-            fetch(page)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content").innerHTML = data;
-                })
-                .catch(error => console.error("Error loading the page:", error));
-            console.log('page loaded succesfully')
-            setTimeout(otherfunctions, 500);
-        }
-
-        // Load the home page by default when the site first opens
-        document.addEventListener("DOMContentLoaded", async function () {
-            // loadPage('Dashboard.html');
-            await loadPage('./Pages/Dashboard.html');
-            // console.log('part2')
-        });
-
-        const otherfunctions = () => {
-            // console.log(document.getElementById('hero-heading'))
-            const text = "Invest Now, Pay Later";
-            let i = 0;
-            function typeEffect() {
-                if (i < text.length) {
-                    document.getElementById("hero-heading").innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typeEffect, 50);
-                }
-            }
-            setTimeout(typeEffect, 500);
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Debugging: Check if elements exist
-            console.log("Hero section:", document.querySelector(".hero"));
-
-            gsap.to(".scale", {
-                scale: 1,
-                duration: 2,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".scale",
-                    start: "top 80%",
-                    toggleActions: "play none none reverse"
-                }
-            });
-            gsap.to(".opacity", {
-                opacity: 1,
-                duration: 2,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".opacity",
-                    start: "top 80%",
-                    toggleActions: "play none none reverse"
-                }
-            });
-
-            gsap.from(".hero-text, .hero-btn", {
-                opacity: 0,
-                y: 50,
-                duration: 2,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".hero",
-                    start: "top 80%",
-                    toggleActions: "play none none none"
-                }
-            });
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.utils.toArray('.section').forEach((section, i) => {
-                gsap.from(section, {
-                    opacity: 0,
-                    y: 100,
-                    duration: 2,
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 80%',
-                        toggleActions: 'play play none reverse'
-                    }
-                });
-            });
-
-            gsap.to(".zoom-box",
-                {
-                    scale: 1, opacity: 1, duration: 3, ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: ".zoom-box",
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
-                    }
-                }
-            );
-
-
-            gsap.set(".left-box", { x: 457, opacity: 0 });
-            gsap.set(".right-box", { x: -457, opacity: 0 });
-
-            // Animate side boxes outward
-            gsap.to(".left-box", {
-                x: 0, opacity: 1, duration: 2, ease: "power2.out", scrollTrigger: {
-                    trigger: ".left-box",
-                    start: "top 80%",
-                    toggleActions: "play none none reverse"
-                }
-            });
-            gsap.to(".right-box", {
-                x: 0, opacity: 1, duration: 2, ease: "power2.out", scrollTrigger: {
-                    trigger: ".right-box",
-                    start: "top 80%",
-                    toggleActions: "play none none reverse"
-                }
-            });
-        }
-
-    </script> -->
+        
 </body>
 
 

@@ -44,17 +44,36 @@ function showmore(element) {
     //    console.log(siblings.lastElementChild.classList);
 
 }
-
+function showToast(message) {
+    Toastify({
+      text: {message},
+      duration: 3000, 
+      close: true,
+      gravity: "top",
+      position: "right",
+      
+      stopOnFocus: true,
+    }).showToast();
+  }
 
 // -------------------------------------------------------------------------------- Load theme from localStorage -----------------------------------------------------------------------------
 
 function loadPage(page) {
+    document.getElementById("loading").style.display = "block";
+    // document.getElementById("content").style.display = "none";
     fetch(page)
         .then(response => response.text())
         .then(data => {
             document.getElementById("content").innerHTML = data;
         })
-        .catch(error => console.error("Error loading the page:", error));
+        .catch(error => console.error("Error loading the page:", error))
+        .finally(() => {
+            // Hide the loading spinner and show the content
+            document.getElementById("loading").style.display = "none";
+            // document.getElementById("content").style.display = "b/lock";
+        });
+
+
     setTimeout(otherfunctions, 500);
 }
 
@@ -176,15 +195,15 @@ const opendailog = () => {
 
 }
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("./Assets/Json/country.json") 
-        .then(response => response.json()) 
+    fetch("./Assets/Json/country.json")
+        .then(response => response.json())
         .then(data => {
             const countrySelect = document.getElementById("countrySelect");
 
             data.forEach(country => {
                 let option = document.createElement("option");
-                option.value = country.code; 
-                option.textContent = country.name; 
+                option.value = country.code;
+                option.textContent = country.name;
                 countrySelect.appendChild(option);
             });
         })
@@ -209,25 +228,25 @@ document.getElementById('countrySelect').addEventListener('change', function () 
     const stateSelect = document.getElementById('stateSelect');
 
     if (country === 'US') {
-        stateSelect.classList.remove('d-none'); 
+        stateSelect.classList.remove('d-none');
     } else {
-        stateSelect.classList.add('d-none'); 
-        stateSelect.value = null; 
+        stateSelect.classList.add('d-none');
+        stateSelect.value = null;
     }
 });
 document.addEventListener("DOMContentLoaded", function () {
     const countrySelect = document.getElementById("countrySelect");
     const stateSelect = document.getElementById("stateSelect");
-    const dialog = document.querySelector(".dailog"); 
-    const body = document.querySelector(".body"); 
+    const dialog = document.querySelector(".dailog");
+    const body = document.querySelector(".body");
 
     function updateStateDropdown() {
         if (countrySelect.value === "United States") {
             stateSelect.innerHTML = '<option value="Alaska" selected>Alaska</option>';
-            stateSelect.disabled = false; 
+            stateSelect.disabled = false;
         } else {
             stateSelect.innerHTML = '<option value="" selected>Not Applicable</option>';
-            stateSelect.disabled = true; 
+            stateSelect.disabled = true;
         }
     }
 
@@ -251,13 +270,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Check if required fields are filled
         if (!firstName || !lastName || !email) {
-            alert("Please fill in all required fields.");
+            // alert("Please fill in all required fields.");
+            showToast("Please fill in all required fields.")
             return;
         }
 
         // Validate email format
         if (!emailPattern.test(email)) {
-            alert("Please enter a valid email address.");
+            // alert("Please enter a valid email address.");
+            showToast("Please enter a valid email address.")
             return;
         }
 
@@ -281,76 +302,81 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify(requestBody)
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Server responded with ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            alert("Email sent successfully!");
-            console.log("Success:", data);
-            firstNameInput.value = "";
-            lastNameInput.value = "";
-            emailInput.value = "";
-            countrySelect.value = "United States";
-            updateStateDropdown(); 
-            dialog.classList.add("d-none");
-            body.classList.remove("blur");
-        })
-        .catch(error => {
-            alert(`Failed to send email. Error: ${error.message}`);
-            console.error("Error:", error);
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Server responded with ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // alert("Email sent successfully!");
+                showToast('Email sent successfully!')
+                // console.log("Success:", data);
+                firstNameInput.value = "";
+                lastNameInput.value = "";
+                emailInput.value = "";
+                countrySelect.value = "United States";
+                updateStateDropdown();
+                dialog.classList.add("d-none");
+                body.classList.remove("blur");
+            })
+            .catch(error => {
+                // alert();
+                showToast(`Failed to send email. Error: ${error.message}`)
+                // console.error("Error:", error);
+            });
     });
 });
 
-const support=(event)=>{
-    
+const support = (event) => {
+
     event.preventDefault(); // Prevent default form submission
 
-        const fullNameInput = document.querySelector("input[placeholder='Full Name']");
-        const emailInput = document.querySelector("input[placeholder='Email']");
-        const messageInput = document.querySelector("textarea");
+    const fullNameInput = document.querySelector("input[placeholder='Full Name']");
+    const emailInput = document.querySelector("input[placeholder='Email']");
+    const messageInput = document.querySelector("textarea");
 
-        const fullName = fullNameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
+    const fullName = fullNameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
 
-        if (!fullName || !email || !message) {
-            alert("Please fill in all required fields.");
-            return;
-        }
+    if (!fullName || !email || !message) {
+        // alert("Please fill in all required fields.");
+        showToast("Please fill in all required fields.")
+        return;
+    }
 
-        const requestBody = {
-            subject: "Contact Us",
-            text: `
+    const requestBody = {
+        subject: "Contact Us",
+        text: `
                 Full Name: ${fullName}
                 Email: ${email}
                 Message: ${message}
             `
-        };
+    };
 
-        fetch("https://pke7n2df83.execute-api.us-east-1.amazonaws.com/default/sendEmail", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(requestBody)
-        })
+    fetch("https://pke7n2df83.execute-api.us-east-1.amazonaws.com/default/sendEmail", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody)
+    })
         .then(response => response.json())
         .then(data => {
-            alert("Message sent successfully!");
+            // alert("Message sent successfully!");
+            showToast('Message sent successfully!')
             console.log("Success:", data);
             fullNameInput.value = "";
             emailInput.value = "";
             messageInput.value = "";
         })
         .catch(error => {
-            alert("Failed to send message. Please try again.");
-            console.error("Error:", error);
+            // alert("Failed to send message. Please try again.");
+            showToast('Failed to send message. Please try again.')
+            // console.error("Error:", error);
         });
-    
+
 }
 
 const newsletter = (event) => {
@@ -367,13 +393,27 @@ const newsletter = (event) => {
 
     // Check if required fields are filled
     if (!fullName || !email) {
-        alert("Please fill in all required fields.");
+        // alert("Please fill in all required fields.");
+        // showToast('Please fill in all required fields.')
+        Toastify({
+            text: "Please enter a valid email address.",
+            duration: 3000,
+            close: true,
+            gravity: "bottom",
+            position: "right",
+            style: {
+                background: "linear-gradient(to right, #FF5F6D, #FFC371)", // Background color
+                zIndex: 999 // Set z-index to 999
+              },
+            stopOnFocus: true,
+          }).showToast();
         return;
     }
 
     // Validate email format
     if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
+        // alert("Please enter a valid email address.");
+        showToast('Please enter a valid email address.')
         return;
     }
 
@@ -389,22 +429,24 @@ const newsletter = (event) => {
         },
         body: JSON.stringify(requestBody)
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Server responded with ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        alert("Message sent successfully!");
-        console.log("Success:", data);
-        fullNameInput.value = "";
-        emailInput.value = "";
-    })
-    .catch(error => {
-        alert(`Failed to send message. Error: ${error.message}`);
-        console.error("Error details:", error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Server responded with ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // alert("Message sent successfully!");
+            showToast('Message sent Successfully !')
+            console.log("Success:", data);
+            fullNameInput.value = "";
+            emailInput.value = "";
+        })
+        .catch(error => {
+            // alert(`Failed to send message. Error: ${error.message}`);
+            showToast(`Failed to send message. Error: ${error.message}`)
+            // console.error("Error details:", error);
+        });
 };
 // ----------------------------------------------------------------------------------------- Mail ----------------------------------------------------------------------------------------
 
