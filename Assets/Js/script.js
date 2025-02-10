@@ -176,88 +176,96 @@ const opendailog = () => {
 
 }
 document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("myForm");
+    const countrySelect = document.getElementById("countrySelect");
+    const stateSelectContainer = document.getElementById("stateSelect2");
+    const stateSelect = document.getElementById("stateSelect");
+
+    let statesData = []; // Store states JSON data
+
+    // Load country list from JSON
     fetch("./Assets/Json/country.json") 
         .then(response => response.json()) 
         .then(data => {
-            const countrySelect = document.getElementById("countrySelect");
-
+            countrySelect.innerHTML = ""; // Clear existing options
             data.forEach(country => {
                 let option = document.createElement("option");
                 option.value = country.code; 
                 option.textContent = country.name; 
                 countrySelect.appendChild(option);
             });
+
+            // Ensure "United States" is selected by default
+            countrySelect.value = "US";
+            updateStateField(); // Call after setting default country
         })
-        .catch(error => console.error("Error loading JSON:", error));
-});
-document.addEventListener("DOMContentLoaded", function () {
+        .catch(error => console.error("Error loading country JSON:", error));
+
+    // Load state list from JSON
     fetch("./Assets/Json/states.json")
         .then(response => response.json())
         .then(data => {
-            const stateSelect = document.getElementById("stateSelect");
-            data.forEach(state => {
-                let option = document.createElement("option");
-                option.value = state.code;
-                option.textContent = state.name;
-                stateSelect.appendChild(option);
-            })
+            statesData = data; // Store states data
+            populateStates(); // Populate state dropdown
+            updateStateField(); // Ensure state field visibility on load
         })
-        .catch(error => console.error("Error loading JSON:", error));
-});
-document.getElementById('countrySelect').addEventListener('change', function () {
-    const country = this.value;
-    const stateSelect = document.getElementById('stateSelect2');
+        .catch(error => console.error("Error loading states JSON:", error));
 
-    if (country === 'US') {
-        stateSelect.classList.remove('d-none'); 
-        stateSelect.value='Alaska'
-    } else {
-        stateSelect.classList.add('d-none'); 
-        stateSelect.value = null; 
-    }
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const countrySelect = document.getElementById("countrySelect");
-    const stateSelect = document.getElementById("stateSelect");
-    const dialog = document.querySelector(".dailog"); 
-    const body = document.querySelector(".body"); 
+    // Populate states dropdown
+    function populateStates() {
+        stateSelect.innerHTML = ""; // Clear existing states
+        statesData.forEach(state => {
+            let option = document.createElement("option");
+            option.value = state.code;
+            option.textContent = state.name;
+            stateSelect.appendChild(option);
+        });
 
-    function updateStateDropdown() {
-        console.log(countrySelect.value)
-        if (countrySelect.value === "US") {
-            stateSelect.innerHTML = '<option value="Alaska" selected>Alaska</option>';
-            stateSelect.disabled = false; 
-        } else {
-            stateSelect.innerHTML = '<option value="" selected>Not Applicable</option>';
-            stateSelect.disabled = true; 
+        // Set the first state as default (e.g., Alaska)
+        if (statesData.length > 1) {
+            stateSelect.value = statesData[0].code;
         }
     }
 
-    updateStateDropdown();
-    countrySelect.addEventListener("change", updateStateDropdown);
+    // Update state field based on country selection
+    function updateStateField() {
+        if (countrySelect.value === "US") {
+            stateSelectContainer.classList.remove("d-none"); // Show state field
+            stateSelect.disabled = false;
 
-    document.getElementById("submitBtn").addEventListener("click", function (event) {
-        event.preventDefault(); // Prevents default button behavior
+            // Ensure first state is selected by default
+            if (statesData.length > 0) {
+                stateSelect.value = statesData[1].code;
+            }
+        } else {
+            stateSelectContainer.classList.add("d-none"); // Hide state field
+            stateSelect.disabled = true;
+            stateSelect.value = ""; // Clear state selection
+        }
+    }
 
-        const firstNameInput = document.querySelector("input[placeholder='First Name']");
-        const lastNameInput = document.querySelector("input[placeholder='Last Name']");
-        const emailInput = document.querySelector("input[placeholder='Email']");
-        const firstName = firstNameInput.value.trim();
-        const lastName = lastNameInput.value.trim();
-        const email = emailInput.value.trim();
+    // Ensure state field shows up when changing country
+    countrySelect.addEventListener("change", updateStateField);
+
+    // Form submit event
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const firstName = document.querySelector("input[placeholder='First Name']").value.trim();
+        const lastName = document.querySelector("input[placeholder='Last Name']").value.trim();
+        const email = document.querySelector("input[placeholder='Email']").value.trim();
         const countryName = countrySelect.options[countrySelect.selectedIndex].text;
-        let stateName = stateSelect.disabled ? null : stateSelect.options[stateSelect.selectedIndex].text;
+        const stateName = stateSelect.disabled ? "null" : stateSelect.options[stateSelect.selectedIndex].text;
 
-        // Email validation regex pattern
+        // Email validation pattern
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-        // Check if required fields are filled
+        // Validation checks
         if (!firstName || !lastName || !email) {
             alert("Please fill in all required fields.");
             return;
         }
 
-        // Validate email format
         if (!emailPattern.test(email)) {
             alert("Please enter a valid email address.");
             return;
@@ -268,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
             Last Name: ${lastName}
             Email: ${email}
             Country: ${countryName}
-            State: ${stateName ? stateName : "null"}
+            State: ${stateName}
         `;
 
         const requestBody = {
@@ -276,6 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
             text: emailText
         };
 
+        // Send request
         fetch("https://pke7n2df83.execute-api.us-east-1.amazonaws.com/default/sendEmail", {
             method: "POST",
             headers: {
@@ -292,13 +301,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             alert("Email sent successfully!");
             console.log("Success:", data);
-            firstNameInput.value = "";
-            lastNameInput.value = "";
-            emailInput.value = "";
-            countrySelect.value = "United States";
-            updateStateDropdown(); 
-            dialog.classList.add("d-none");
-            body.classList.remove("blur");
+            form.reset(); // Reset form fields
+
+            // Ensure default selections are set after reset
+            countrySelect.value = "US";
+            populateStates();
+            updateStateField();
         })
         .catch(error => {
             alert(`Failed to send email. Error: ${error.message}`);
