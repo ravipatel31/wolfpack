@@ -18,7 +18,7 @@
             <img src="../../wolfpack/Assets/Images/Support/Support1.png" class="licencing" height="414px" alt="">
         </div>
 
-        <form action="">
+        <form action="" onsubmit="support(event)">
             <div class="d-flex mt-md-3 p-0 align-items-center flex-md-row flex-column gap-3">
                 <div class="row col-md-6 col-12" data-aos="fade-up" data-aos-duration="2000">
                     <span class="text-secondary col-12 mb-1 ">Full Name <span style="color: red;">*</span></span>
@@ -53,8 +53,8 @@
                     <textarea fs-6 type="text" class="input col-12 fs-6  me-md-3 " style="border-radius: 20px ;"></textarea>
                 </div>
             </div>
-            <button type="button" id="supportSubmitBtn" class="btn-orange glow-button fs-6 submit-btn btn-2" style="padding: 13px 74px !important;" data-aos="fade-up"
-                    data-aos-duration="2000" onclick="support()">Submit</button>
+            <button id="supportSubmitBtn" class="btn-orange glow-button fs-6 submit-btn btn-2" style="padding: 13px 74px !important;" data-aos="fade-up"
+                    data-aos-duration="2000" type="submit">Submit</button>
 
         </form>
     </div>
