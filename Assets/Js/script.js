@@ -206,10 +206,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 document.getElementById('countrySelect').addEventListener('change', function () {
     const country = this.value;
-    const stateSelect = document.getElementById('stateSelect');
+    const stateSelect = document.getElementById('stateSelect2');
 
     if (country === 'US') {
         stateSelect.classList.remove('d-none'); 
+        stateSelect.value='Alaska'
     } else {
         stateSelect.classList.add('d-none'); 
         stateSelect.value = null; 
@@ -222,7 +223,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const body = document.querySelector(".body"); 
 
     function updateStateDropdown() {
-        if (countrySelect.value === "United States") {
+        console.log(countrySelect.value)
+        if (countrySelect.value === "US") {
             stateSelect.innerHTML = '<option value="Alaska" selected>Alaska</option>';
             stateSelect.disabled = false; 
         } else {
