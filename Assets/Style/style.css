@@ -737,23 +737,38 @@ body {
 }
 
 .credit-check1 {
-    background: url(../Backgrounds/boosterloan3_1.png) !important;
+    background: url(../Backgrounds/bigcard-1.png) !important;
     background-size: 100% 100%;
     max-width: 400px !important;
     border-radius: 30px !important;
+}
+.small-card-1{
+    background:url(../Backgrounds/smallcard-1.png) ;
+    background-size: 100% 100%;
+    max-width: 400px !important;
+}
+.small-card-2{
+    background:url(../Backgrounds/smallcard-2.png) ;
+    background-size: 100% 100%;
+    max-width: 400px !important;
+}
+.small-card-3{
+    background:url(../Backgrounds/smallcard-3.png) ;
+    background-size: 100% 100%;
+    max-width: 400px !important;
 }
 .white-space{
     white-space: nowrap;
 }
 .credit-check2 {
-    background: url(../Backgrounds/boosterloan3_2.png) !important;
+    background: url(../Backgrounds/bigcard-2.png) !important;
     background-size: 100% 100%;
     background-position: center;
     border-radius: 30px !important;
 }
 
 .credit-check3 {
-    background: url(../Backgrounds/boosterlaon3_3.png) !important;
+    background: url(../Backgrounds/bigcard-3.png) !important;
     background-size: 100% 100%;
     border-radius: 30px !important;
 }
