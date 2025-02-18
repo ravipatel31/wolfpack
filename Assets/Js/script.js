@@ -16,6 +16,12 @@ window.onload = function () {
         document.body.classList.add('light-theme');
     }
 };
+function closeDropdown() {
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    dropdownMenu.classList.remove('show'); // Hide the dropdown
+  }
+
+
 // -----------------------------------------------------------------------------------------Active url ---------------------------------------------------------------
 function setActive(element) {
     // Remove 'active' class from all nav links

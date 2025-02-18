@@ -70,9 +70,8 @@
     background-color: var(--bg-color) !important;
 }
 
-.opendropdown:hover .dropdown-menu {
-    display: block !important;
-}
+
+
 .nav-item{
     font-weight:550 !important;
 }
@@ -86,6 +85,9 @@
 .nav-link.active {
     color: #F2674A !important;  /* Change active link color */
     border-bottom: 3px solid #F2674A;
+}
+.nav-link.active .dropdown-menu{
+    display: none !important;
 }
 
 .dropdown-item:hover {
@@ -634,6 +636,7 @@ body {
     padding: 20px 100px;
     background: url(../Backgrounds/signup.png);
     background-size: 100% 100%;
+    background-position: center;
 }
 
 .signup-form {

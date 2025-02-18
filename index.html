@@ -42,48 +42,39 @@
                         <ul data-aos="fade-down" data-aos-duration="1500"
                             class="navbar-nav justify-content-center fs-5 gap-md-4 flex-grow-1 pe-3"
                             data-bs-auto-close="outside">
-
-                            <li class="nav-item dropdown opendropdown">
-                                <a class="nav-link dropdown-toggle text-light fw-bold" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                    onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
-                                    Licensing
-
-                                </a>
-                                <ul class="dropdown-menu bg-dark">
-                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#"  onclick="loadPage('./Pages/BoosterLoans.html'); setActive(this);">Booster
-                                        Loans</a></li>
-                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#"onclick="loadPage('./Pages/Premiumdata&signal.html'); setActive(this);">Premium
-                                        Data & Signals</a></li>
-                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#"  onclick="loadPage('./Pages/Mobile.html'); setActive(this);">Mobile</a></li>
-                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#" onclick="loadPage('./Pages/AIDriven.html'); setActive(this);">Discovery</a></li>
-                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#" onclick="loadPage('./Pages/Customise_development.html'); setActive(this);">Customized Development</a></li>
-                                   
-                                    <li><a class="dropdown-item text-light nav-link fw-bold" href="#"onclick="loadPage('./Pages/AIservice.html'); setActive(this);">AI
-                                        Services</a></li>
-                                  </ul>
-                            </li>
                             <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
-                                    onclick="loadPage('./Pages/Partners.html');setActive(this);">Partners</a>
+                                    onclick="loadPage('./Pages/StartHunting.html');setActive(this);">Start Hunting</a>
                             </li>
                             <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
                                     onclick="loadPage('./Pages/Fees.html'); setActive(this);">Fees</a>
                             </li>
-                            
                             <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
-                                    onclick="loadPage('./Pages/Support.html'); setActive(this); ">Support</a>
+                                    onclick="loadPage('./Pages/FAQ.html'); setActive(this);">FAQ's</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link fw-bold" aria-current="page" href="https://shop.wolfpack.com/"
                                     target="_blank">Shop</a>
                             </li>
-                            <li class="nav-item">
-                                <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
-                                    onclick="loadPage('./Pages/FAQ.html'); setActive(this);">FAQ's</a>
-                            </li>
+                        
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
+                                    Licensing
+                                </a>
+                                <ul class="dropdown-menu bg-dark">
+                                    <li><a class="dropdown-item text-light" href="#" onclick="loadPage('./Pages/BoosterLoans.html'); setActive(this); closeDropdown();">Booster Loans</a></li>
+                                    <li><a class="dropdown-item text-light" href="#" onclick="loadPage('./Pages/Premiumdata&signal.html'); setActive(this); closeDropdown();">Premium Data & Signals</a></li>
+                                    <li><a class="dropdown-item text-light" href="#" onclick="loadPage('./Pages/Mobile.html'); setActive(this); closeDropdown();">Mobile</a></li>
+                                    <li><a class="dropdown-item text-light" href="#" onclick="loadPage('./Pages/AIDriven.html'); setActive(this); closeDropdown();">Discovery</a></li>
+                                    <li><a class="dropdown-item text-light" href="#" onclick="loadPage('./Pages/Customise_development.html'); setActive(this); closeDropdown();">Customized Development</a></li>
+                                    <li><a class="dropdown-item text-light" href="#" onclick="loadPage('./Pages/AIservice.html'); setActive(this); closeDropdown();">AI Services</a></li>
+                                  </ul>
+                              </li>
+                          
+                          
+                           
                         </ul>
                         <div class=" col-md-2 text-end d-flex flex-column flex-md-row">
                             <a href=" https://trading.wolfpack.com" target="_blank"><button type="button"
@@ -166,6 +157,8 @@
                             <li class="text-start fs-16">Disclaimer</li>
                             <li class="text-start fs-16">Close Account</li>
                             <li class="text-start fs-16">Licensing</li>
+                            <li class="text-start fs-16" onclick="loadPage('./Pages/Partners.html');setActive(this);">Partners</li>
+                            <li class="text-start fs-16" onclick="loadPage('./Pages/Support.html'); setActive(this);">Support</li>
                         </ul>
                     </div>
                     <div class="part-1-1">
