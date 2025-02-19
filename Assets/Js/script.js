@@ -17,9 +17,29 @@ window.onload = function () {
     }
 };
 function closeDropdown() {
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    dropdownMenu.classList.remove('show'); // Hide the dropdown
-  }
+    const dropdownMenus = document.getElementsByClassName("dropdown-menu");
+    if (dropdownMenus.length > 0) {
+        dropdownMenus[0].style.display = "none"; // Hides the dropdown
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.querySelector(".nav-item.dropdown");
+
+    dropdown.addEventListener("mouseenter", function () {
+        const dropdownMenus = document.getElementsByClassName("dropdown-menu");
+        if (dropdownMenus.length > 0) {
+            dropdownMenus[0].style.display = "block"; // Hides the dropdown
+        }
+    });
+    dropdown.addEventListener("mouseleave", function () {
+        const dropdownMenus = document.getElementsByClassName("dropdown-menu");
+        if (dropdownMenus.length > 0) {
+            dropdownMenus[0].style.display = "none"; // Hides the dropdown
+        }
+    });
+});
+
+
 
 
 // -----------------------------------------------------------------------------------------Active url ---------------------------------------------------------------
@@ -59,18 +79,18 @@ function showToast(message) {
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-            borderradius:'20px',
-          background: "rgba(255,255,255,0.9)",
-          fontWeight:'bold',
-          color:'black',
-          fontsize:'20px'
+            borderradius: '20px',
+            background: "rgba(255,255,255,0.9)",
+            fontWeight: 'bold',
+            color: 'black',
+            fontsize: '20px'
 
         },
-      }).showToast();
-  }
+    }).showToast();
+}
 
-  
-  function launchConfetti() {
+
+function launchConfetti() {
     const canvas = document.querySelector('.confetti-canvas');
     const card = document.querySelector('.referfriend');
 
@@ -84,7 +104,7 @@ function showToast(message) {
         particleCount: 3000,
         spread: 300,
         startVelocity: 50,
-        origin: { y: 0.99},
+        origin: { y: 0.99 },
         colors: ['#ff5f6d', '#ffc371', '#6a5acd', '#4fc3f7', '#81c784']
     });
     setTimeout(startConfetti, 50);
@@ -102,9 +122,9 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.8
 });
 // document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        observer.observe(document.querySelector('.referfriend'));
-    }, 5000); 
+setTimeout(() => {
+    observer.observe(document.querySelector('.referfriend'));
+}, 5000);
 // });
 // -------------------------------------------------------------------------------- Load theme from localStorage -----------------------------------------------------------------------------
 
@@ -113,10 +133,11 @@ function loadPage(page) {
     fetch(page)
         .then(response => response.text())
         .then(data => {
+            window.scrollTo(0, 0);
             document.getElementById("content").innerHTML = data;
         })
         .catch(error => console.error("Error loading the page:", error))
-        
+
     setTimeout(otherfunctions, 500);
 }
 
@@ -190,37 +211,7 @@ const otherfunctions = () => {
         });
     });
 
-    gsap.to(".zoom-box",
-        {
-            scale: 1, opacity: 1, duration: 3, ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".zoom-box",
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-            }
-        }
-    );
-
-
-    gsap.set(".left-box", { x: 457, opacity: 0 });
-    gsap.set(".right-box", { x: -457, opacity: 0 });
-
-    // Animate side boxes outward
-    gsap.to(".left-box", {
-        x: 0, opacity: 1, duration: 2, ease: "power2.out", scrollTrigger: {
-            trigger: ".left-box",
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-        }
-    });
-    gsap.to(".right-box", {
-        x: 0, opacity: 1, duration: 2, ease: "power2.out", scrollTrigger: {
-            trigger: ".right-box",
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-        }
-    });
-}
+ }
 
 // -----------------------------------------------------------------------------popup -----------------------------------------------------------------------------------
 const opendailog = () => {
@@ -246,8 +237,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let statesData = []; // Store states JSON data
 
     // Load country list from JSON
-    fetch("./Assets/Json/country.json") 
-        .then(response => response.json()) 
+    fetch("./Assets/Json/country.json")
+        .then(response => response.json())
         .then(data => {
             countrySelect.innerHTML = ""; // Clear existing options
             data.forEach(country => {
@@ -356,26 +347,26 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify(requestBody)
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Server responded with ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            alert("Email sent successfully!");
-            console.log("Success:", data);
-            form.reset(); // Reset form fields
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Server responded with ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert("Email sent successfully!");
+                console.log("Success:", data);
+                form.reset(); // Reset form fields
 
-            // Ensure default selections are set after reset
-            countrySelect.value = "US";
-            populateStates();
-            updateStateField();
-        })
-        .catch(error => {
-            alert(`Failed to send email. Error: ${error.message}`);
-            console.error("Error:", error);
-        });
+                // Ensure default selections are set after reset
+                countrySelect.value = "US";
+                populateStates();
+                updateStateField();
+            })
+            .catch(error => {
+                alert(`Failed to send email. Error: ${error.message}`);
+                console.error("Error:", error);
+            });
     });
 });
 

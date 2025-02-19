@@ -70,7 +70,14 @@
     background-color: var(--bg-color) !important;
 }
 
-
+.link{
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+.link:active{
+    color: #F2674A;
+}
 
 .nav-item{
     font-weight:550 !important;
@@ -86,9 +93,6 @@
     color: #F2674A !important;  /* Change active link color */
     border-bottom: 3px solid #F2674A;
 }
-.nav-link.active .dropdown-menu{
-    display: none !important;
-}
 
 .dropdown-item:hover {
     background-color: transparent !important;
@@ -98,6 +102,9 @@
     background-color: transparent !important;
 }
 
+.text-align-justify{
+    text-align: justify !important;
+}
 
 .dailog {
     position: fixed;
@@ -329,7 +336,7 @@ body {
 }
 
 .opt-desc {
-    width: 75% !important;
+    /* width: 100% !important; */
     margin: 0px auto;
 }
 
@@ -461,7 +468,9 @@ body {
     margin-bottom: 50px;
     background-repeat: no-repeat;
 }
-
+.discover_opt{
+    width: 25%;
+}
 .opt_heading {
     /* font-size: clamp(10px,5vw,20px); */
     font-family: Avenir-bold;

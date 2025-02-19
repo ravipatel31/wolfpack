@@ -65,9 +65,11 @@ margin-bottom: 5px !important;
 }
 .discover_opt{
     margin-bottom: 10px;
+    width: 100%;
 }
 .opt_heading, .opt_desc{
     margin: 5px 0px;
+    width: 100% !important;
 }
 .pc_img{
     width: 100%;
