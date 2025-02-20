@@ -723,11 +723,16 @@ body {
 .opacity {
     opacity: 0;
 }
+.heading-text{
+    font-size: 100px; 
+    font-weight: 700; 
+    color:#F2674A ;
+}
 
 /* ------------------------------------------------------------------------------------Booster -------------------------------------------------------------------------- */
 .booster-1 {
     background: url(../Images/gradientcircle.png);
-    background-position: 25vw 0px;
+    background-position: 25vw 30px;
     background-repeat: no-repeat;
     background-size: 185px;
 }
@@ -845,7 +850,7 @@ body {
     line-height: normal;
     opacity: 0.3;
     position: absolute;
-    top: 30px;
+    top: 40px;
      left: 20px;
     font-family: Avenir-bold !important;
     font-weight: 900 !important;
