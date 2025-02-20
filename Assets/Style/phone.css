@@ -74,6 +74,9 @@ margin-bottom: 5px !important;
 .pc_img{
     width: 100%;
 }
+.top-500{
+    top: 650px !important;
+}
 .discover{
     margin-bottom: 30px;
 }
