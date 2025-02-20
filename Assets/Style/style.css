@@ -752,6 +752,20 @@ body {
     background-size: 100% 100%;
     max-width: 400px;
 }
+.licencing{
+    background: url(../Backgrounds/Licencingfirst.png);
+    background-size: 100% 95%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px !important;
+}
+.ai-bg{
+    background: url(../Images/AIservice/Background.png);
+    background-size: 100% 95%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px !important;
+}
 
 .credit-check1 {
     background: url(../Backgrounds/bigcard-1.png) !important;
