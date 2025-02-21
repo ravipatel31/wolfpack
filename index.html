@@ -40,11 +40,11 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body">
+                    <div class="offcanvas-body ms-auto">
                         <ul data-aos="fade-down" data-aos-duration="1500"
                             class="navbar-nav justify-content-center fs-5 gap-md-4 flex-grow-1 pe-3"
                             data-bs-auto-close="outside">
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
                                     onclick="loadPage('./Pages/StartHunting.html');setActive(this);">Start Hunting</a>
                             </li>
@@ -59,12 +59,34 @@
                             <li class="nav-item">
                                 <a data-bs-dismiss="offcanvas" class="nav-link fw-bold" aria-current="page" href="#"
                                     onclick="loadPage('./Pages/FAQ.html'); setActive(this);">FAQ's</a>
+                            </li> -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fw-bold" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
+                                    For Individuals
+                                </a>
+                                <ul class="dropdown-menu  bg-dark">
+                                    <li><a class="dropdown-item nav-link text-light" href="#"
+                                        onclick="loadPage('./Pages/StartHunting.html'); setActive(this); closeDropdown();">Start Hunting</a></li>
+                                    <li><a class="dropdown-item nav-link text-light" href="#"
+                                        onclick="loadPage('./Pages/BoosterLending.html'); setActive(this); closeDropdown();">Booster Loan</a></li>
+                                    <li><a class="dropdown-item nav-link text-light" href="#"
+                                        onclick="loadPage('./Pages/Fees.html'); setActive(this); closeDropdown();">Fees</a></li>
+                                    <li><a class="dropdown-item nav-link text-light" href="#"
+                                        onclick="loadPage('./Pages/FAQ.html'); setActive(this); closeDropdown();">FAQ's</a></li>
+                                    <li><a class="dropdown-item nav-link text-light" aria-current="page" href="https://shop.wolfpack.com/"
+                                        target="_blank"
+                                            onclick="setActive(this); closeDropdown();">Shop</a>
+                                    </li>
+
+                                </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle fw-bold" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false"
                                     onclick="loadPage('./Pages/Licencing.html'); setActive(this);">
-                                    Licensing
+                                    For Enterprise
                                 </a>
                                 <ul class="dropdown-menu  bg-dark">
                                     <li><a class="dropdown-item nav-link text-light" href="#"
@@ -88,10 +110,10 @@
 
                                 </ul>
                             </li>
-                            <li class="nav-item ">
+                            <!-- <li class="nav-item ">
                                 <a class="nav-link fw-bold" aria-current="page" href="https://shop.wolfpack.com/"
                                     target="_blank">Shop</a>
-                            </li>
+                            </li> -->
 
 
 

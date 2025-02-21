@@ -16,25 +16,50 @@ window.onload = function () {
         document.body.classList.add('light-theme');
     }
 };
-function closeDropdown() {
-    const dropdownMenus = document.getElementsByClassName("dropdown-menu");
-    if (dropdownMenus.length > 0) {
-        dropdownMenus[0].style.display = "none"; // Hides the dropdown
-    }
-}
-document.addEventListener("DOMContentLoaded", function () {
-    const dropdown = document.querySelector(".nav-item.dropdown");
+// function closeDropdown() {
+//     const dropdownMenus = document.getElementsByClassName("dropdown-menu");
+//     if (dropdownMenus.length > 0) {
+//         dropdownMenus[0].style.display = "none"; 
+//     }
+// }
+// document.addEventListener("DOMContentLoaded", function () {
+//     const dropdown = document.querySelector(".nav-item.dropdown");
 
-    dropdown.addEventListener("mouseenter", function () {
-        const dropdownMenus = document.getElementsByClassName("dropdown-menu");
-        if (dropdownMenus.length > 0) {
-            dropdownMenus[0].style.display = "block"; // Hides the dropdown
-        }
-    });
-    dropdown.addEventListener("mouseleave", function () {
-        const dropdownMenus = document.getElementsByClassName("dropdown-menu");
-        if (dropdownMenus.length > 0) {
-            dropdownMenus[0].style.display = "none"; // Hides the dropdown
+//     dropdown.addEventListener("mouseenter", function () {
+//         const dropdownMenus = document.getElementsByClassName("dropdown-menu");
+//         if (dropdownMenus.length > 0) {
+//             dropdownMenus[0].style.display = "block"; 
+//         }
+//     });
+//     dropdown.addEventListener("mouseleave", function () {
+//         const dropdownMenus = document.getElementsByClassName("dropdown-menu");
+//         if (dropdownMenus.length > 0) {
+//             dropdownMenus[0].style.display = "none";
+//         }
+//     });
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+
+    dropdowns.forEach((dropdown) => {
+        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+
+        if (dropdownMenu) {
+            dropdown.addEventListener("mouseenter", function () {
+                dropdownMenu.style.display = "block"; // Show only this dropdown
+            });
+
+            dropdown.addEventListener("mouseleave", function () {
+                dropdownMenu.style.display = "none"; // Hide only this dropdown
+            });
+
+            // Close dropdown when an item is clicked
+            dropdownMenu.querySelectorAll(".dropdown-item").forEach((item) => {
+                item.addEventListener("click", function () {
+                    dropdownMenu.style.display = "none";
+                });
+            });
         }
     });
 });
